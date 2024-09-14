@@ -552,6 +552,7 @@
 <div class="bg-yellow-200">
 <div class="2xl:container mx-auto sm:flex items-stretch min-h-screen relative">
     <div class="relative bg-blue-800 w-full sm:max-w-64 p-4 sm:p-8 sm:before:content-[''] before:absolute before:z-1 before:bg-blue-800 before:h-full before:w-screen before:right-0 before:top-0">
+		<a href="/">home</a>
         <h2 class="relative z-1 text-yellow-500 font-bold text-4xl">Courses</h2>
         <!-- Ensure courses array is defined and iterate over it -->
         {#if courses && courses.length > 0}
@@ -576,7 +577,7 @@
 					<p class="mb-2">{selectedCourse.questions[selectedQuestion]?.question}</p>
 
 					<div class="grid gap-2 w-full">
-						<textarea rows="10" bind:value={userAnswer} placeholder="Type your answer here..." class="w-full p-2 border-2 border-blue-500 bg-blue-100 m-0 " />
+						<textarea rows="10" bind:value={userAnswer} placeholder="Type your answer here..." class="w-full p-2 border-2 border-blue-500 bg-blue-100 m-0 "></textarea>
 						<button class="sm:w-fit bg-yellow-500 text-blue-900 px-4 py-2 font-bold border-2 border-yellow-500 rounded hover:bg-yellow-600 hover:border-yellow-600 m-0" on:click={checkAnswer} on:touchstart={checkAnswer}>Submit</button>
 					</div>
 				</div>
