@@ -521,7 +521,7 @@
     let showAnswer = false; // To control when the correct answer is shown
     
     function loadCourse(courseIndex) {
-        selectedCourse = courses?.[courseIndex] || null; // Ensure selectedCourse is set or null
+        selectedCourse = courses[courseIndex] || null; // Ensure selectedCourse is set or null
         selectedQuestion = 0; // Reset to the first question
         userAnswer = ''; // Clear previous user answer
         showAnswer = false; // Reset answer visibility
@@ -574,7 +574,7 @@
 				<h1 class="text-yellow-800 text-2xl font-medium">{selectedCourse.title}</h1>
 				<div class="flex flex-col items-center">
 					<h3 class="text-lg mb-2">Question {selectedQuestion + 1} of {selectedCourse.questions.length}</h3>
-					<p class="mb-2">{selectedCourse.questions[selectedQuestion]?.question}</p>
+					<p class="mb-2">{selectedCourse.questions[selectedQuestion].question}</p>
 
 					<div class="grid gap-2 w-full">
 						<textarea rows="10" bind:value={userAnswer} placeholder="Type your answer here..." class="w-full p-2 border-2 border-blue-500 bg-blue-100 m-0 "></textarea>
