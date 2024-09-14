@@ -558,7 +558,7 @@
             <ul class="relative z-2 list-none p-0">
                 {#each courses as course, index}
                     <li class="inline md:block">
-                        <button type="button" on:click={() => loadCourse(index)} class="p-2 bg-blue-600 rounded mt-4 text-white font-bold hover:bg-blue-500 border-0">{course.course}</button>
+                        <button type="button" on:click={() => loadCourse(index)} on:touchstart={() => loadCourse(index)} class="p-2 bg-blue-600 rounded mt-4 text-white font-bold hover:bg-blue-500 border-0">{course.course}</button>
                     </li>
                 {/each}
             </ul>
@@ -577,7 +577,7 @@
 
 					<div class="grid gap-2 w-full">
 						<textarea rows="10" bind:value={userAnswer} placeholder="Type your answer here..." class="w-full p-2 border-2 border-blue-500 bg-blue-100 m-0 " />
-						<button type="button" class="sm:w-fit bg-yellow-500 text-blue-900 px-4 py-2 font-bold border-2 border-yellow-500 rounded hover:bg-yellow-600 hover:border-yellow-600 m-0" on:click={checkAnswer}>Submit</button>
+						<button type="button" class="sm:w-fit bg-yellow-500 text-blue-900 px-4 py-2 font-bold border-2 border-yellow-500 rounded hover:bg-yellow-600 hover:border-yellow-600 m-0" on:click={checkAnswer} on:touchstart={checkAnswer}>Submit</button>
 					</div>
 				</div>
 				
@@ -591,8 +591,8 @@
 					{/if}
 
 					<div class="mt-4 flex gap-4 justify-center">
-						<button type="button" on:click={previousQuestion} disabled={selectedQuestion === 0} class="w-fit p-2 bg-blue-600 rounded text-white font-bold hover:bg-blue-500 border-0 disabled:cursor-not-allowed disabled:bg-blue-100">Previous</button>
-						<button type="button" on:click={nextQuestion} disabled={selectedQuestion === selectedCourse.questions.length - 1} class="w-fit p-2 bg-blue-600 rounded text-white font-bold hover:bg-blue-500 border-0">Next</button>
+						<button type="button" on:click={previousQuestion} on:touchstart={previousQuestion} disabled={selectedQuestion === 0} class="w-fit p-2 bg-blue-600 rounded text-white font-bold hover:bg-blue-500 border-0 disabled:cursor-not-allowed disabled:bg-blue-100">Previous</button>
+						<button type="button" on:click={nextQuestion} on:touchstart={nextQuestion} disabled={selectedQuestion === selectedCourse.questions.length - 1} class="w-fit p-2 bg-blue-600 rounded text-white font-bold hover:bg-blue-500 border-0">Next</button>
 					</div>
 				</div>
 			</div>
