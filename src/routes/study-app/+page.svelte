@@ -521,7 +521,7 @@
     let showAnswer = false; // To control when the correct answer is shown
     
     function loadCourse(courseIndex) {
-        selectedCourse = courses?.[courseIndex] || courses[0]; // Ensure selectedCourse is set or courses[0]
+        selectedCourse = courses?.[courseIndex] || null; // Ensure selectedCourse is set or null
         selectedQuestion = 0; // Reset to the first question
         userAnswer = ''; // Clear previous user answer
         showAnswer = false; // Reset answer visibility
@@ -550,14 +550,14 @@
 
 <!-- Page Layout -->
 <div class="bg-yellow-200">
-<div class="2xl:container mx-auto sm:flex items-stretch h-screen relative">
+<div class="2xl:container mx-auto sm:flex items-stretch min-h-screen relative">
     <div class="relative bg-blue-800 w-full sm:max-w-64 p-4 sm:p-8 sm:before:content-[''] before:absolute before:z-1 before:bg-blue-800 before:h-full before:w-screen before:right-0 before:top-0">
         <h2 class="relative z-1 text-yellow-500 font-bold text-4xl">Courses</h2>
         <!-- Ensure courses array is defined and iterate over it -->
         {#if courses && courses.length > 0}
             <ul class="relative z-2 list-none p-0">
                 {#each courses as course, index}
-                    <li>
+                    <li class="inline md:block">
                         <button on:click={() => loadCourse(index)} class="p-2 bg-blue-600 rounded mt-4 text-white font-bold hover:bg-blue-500 border-0">{course.course}</button>
                     </li>
                 {/each}
@@ -582,10 +582,10 @@
 				</div>
 				
 
-				<div class="">
+				<div class="mt-4">
 					{#if showAnswer}
 						<div class="mb-2">
-							<p class="">Your answer: {userAnswer}</p>
+							<p class="mb-2">Your answer: {userAnswer}</p>
 							<p class="font-medium">Correct answer: {selectedCourse.questions[selectedQuestion].answer}</p>
 						</div>
 					{/if}
