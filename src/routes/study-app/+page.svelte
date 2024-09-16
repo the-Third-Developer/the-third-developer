@@ -554,9 +554,9 @@
 <div class="bg-yellow-200">
 	<div class="2xl:container mx-auto sm:flex items-stretch min-h-screen relative">
 		<div class="relative bg-blue-800 w-full sm:max-w-64 p-4 sm:p-8 sm:before:content-[''] before:absolute before:z-1 before:bg-blue-800 before:h-full before:w-screen before:right-0 before:top-0">
-			<div class="relative z-1 flex justify-between items-center">
+			<div class="relative z-1 flex sm:block justify-between items-center">
 				<a class="text-yellow-500 font-semibold text-1xl" href="/">Home</a>
-				<label for="menuToggle" class="text-white flex gap-1 items-center">
+				<label for="menuToggle" class="text-white sm:flex gap-1 items-center">
 					Check to {isMenuClosed ? "open" : "close"} menu
 					<input type="checkbox" bind:checked={isMenuClosed} name="menuToggle" class="w-4 h-4" />
 				</label>
