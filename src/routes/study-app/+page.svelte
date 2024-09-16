@@ -90,7 +90,7 @@
 				},
 				{
 					type: "short-answer",
-					question: "What’s the difference between ideas being stored locally or being distributed?",
+					question: "What's the difference between ideas being stored locally or being distributed?",
 					answer:
 						"Local storage of ideas suggests that specific memories or knowledge are stored in particular parts of the brain. Distributed storage suggests that memories and knowledge are spread across multiple regions of the brain, with many neurons involved in each memory."
 				}
@@ -338,9 +338,9 @@
 				},
 				{
 					type: "short-answer",
-					question: "Explain Locard’s principle of exchange.",
+					question: "Explain Locard's principle of exchange.",
 					answer:
-						"Locard’s principle states that whenever two objects come into contact, they exchange material, meaning that perpetrators leave trace evidence behind at a crime scene and may take evidence away."
+						"Locard's principle states that whenever two objects come into contact, they exchange material, meaning that perpetrators leave trace evidence behind at a crime scene and may take evidence away."
 				},
 				{
 					type: "short-answer",
