@@ -586,7 +586,7 @@
 						<p class="mb-2">{selectedCourse.questions[selectedQuestion]?.question}</p>
 
 						<div class="grid gap-2 w-full">
-							<textarea rows="10" bind:value={userAnswer} placeholder="Type your answer here..." class="w-full p-2 border-2 border-blue-500 bg-blue-100 m-0 "></textarea>
+							<textarea rows="6" bind:value={userAnswer} placeholder="Type your answer here..." class="w-full p-2 border-2 border-blue-500 bg-blue-100 m-0 "></textarea>
 							<button class="sm:w-fit bg-yellow-500 text-blue-900 px-4 py-2 font-bold border-2 border-yellow-500 rounded hover:bg-yellow-600 hover:border-yellow-600 m-0" on:click={checkAnswer} on:touchstart={checkAnswer}>Submit</button>
 						</div>
 					</div>
