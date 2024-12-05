@@ -14,139 +14,66 @@
 		<h2 class="m-0 mb-4 p-0 text-center text-4xl">
 			Traits of Personality Legend
 		</h2>
-		<ol class="flex flex-wrap gap-4 items-stretch justify-between">
-			<li
-				class="max-w-80 p-2 rounded-lg bg-blue-100 border border-blue-300"
-			>
-				<h3 class="text-xl font-medium text-blue-500">
-					Group 1: Literal & Communication
-				</h3>
-				<ul>
-					<li>Preference for direct, literal communication</li>
-					<li>Struggles with small talk</li>
-					<li>Difficulty understanding unspoken social rules</li>
-					<li>Difficulty processing verbal instructions</li>
-					<li>Delayed response in conversations</li>
-					<li>Difficulty understanding metaphors</li>
-					<li>Difficulty reading facial expressions</li>
-					<li>Difficulty understanding sarcasm or jokes</li>
-					<li>Strong dislike of lying or dishonesty</li>
-					<li>Tendency to monologue on interests</li>
-				</ul>
-			</li>
-
-			<li
-				class="max-w-80 p-2 rounded-lg bg-yellow-100 border border-yellow-300"
-			>
-				<h3 class="text-xl font-medium text-yellow-500">
-					Group 2: Social & Routine
-				</h3>
-				<ul>
-					<li>Social anxiety</li>
-					<li>Preference for predictable environments</li>
-					<li>Difficulty adjusting to new situations</li>
-					<li>Difficulty with changes in plans</li>
-					<li>Preference for routines and consistency</li>
-					<li>Inflexibility in opinions or routines</li>
-					<li>
-						Preference for factual information over abstract
-						concepts
-					</li>
-					<li>Fixation on specific routines or rituals</li>
-					<li>Difficulty understanding social cues</li>
-					<li>Preference for solo activities</li>
-				</ul>
-			</li>
-
-			<li
-				class="max-w-80 p-2 rounded-lg bg-green-100 border border-green-300"
-			>
-				<h3 class="text-xl font-medium text-green-500">
-					Group 3: Sensory & Motor
-				</h3>
-				<ul>
-					<li>Stimming (repetitive movements like hand-flapping)</li>
-					<li>High sensitivity to criticism</li>
-					<li>Rigidity in thinking or problem-solving</li>
-					<li>Fascination with patterns or numbers</li>
-					<li>High attention to detail</li>
-					<li>Highly analytical thinking style</li>
-					<li>Tendency to overthink or ruminate</li>
-					<li>Fascination with specific objects or textures</li>
-					<li>Repetitive behaviors or speech</li>
-					<li>Issues with motor coordination or clumsiness</li>
-				</ul>
-			</li>
-
-			<li
-				class="max-w-80 p-2 rounded-lg bg-red-100 border border-red-300"
-			>
-				<h3 class="text-xl font-medium text-red-500">
-					Group 4: Cognitive & Focus
-				</h3>
-				<ul>
-					<li>High intelligence or giftedness in specific areas</li>
-					<li>Intense interest in specific subjects</li>
-					<li>Hyperfocus on specific topics or interests</li>
-					<li>Obsessive interests that may shift over time</li>
-					<li>Obsessive interests that may dominate daily life</li>
-					<li>Difficulty with multitasking</li>
-					<li>
-						Difficulty with executive functioning (planning,
-						organizing)
-					</li>
-					<li>Difficulty with time management</li>
-					<li>Difficulty understanding the perspectives of others</li>
-					<li>Strong dislike of uncertainty</li>
-				</ul>
-			</li>
-
-			<li
-				class="max-w-80 p-2 rounded-lg bg-purple-100 border border-purple-300"
-			>
-				<h3 class="text-xl font-medium text-purple-500">
-					Group 5: Emotional & Sensitivity
-				</h3>
-				<ul>
-					<li>Difficulty empathizing in typical ways</li>
-					<li>Meltdowns or shutdowns under stress</li>
-					<li>
-						Tendency to mimic others' behaviors as a coping strategy
-					</li>
-					<li>Difficulty making eye contact</li>
-					<li>Aversion to being touched or hugged unexpectedly</li>
-					<li>Aversion to strong smells</li>
-					<li>High sensitivity to feedback or criticism</li>
-					<li>Emotional sensitivity</li>
-					<li>Strong sense of justice or fairness</li>
-					<li>Difficulty recognizing or expressing emotions</li>
-				</ul>
-			</li>
-
-			<li
-				class="max-w-80 p-2 rounded-lg bg-orange-100 border border-orange-300"
-			>
-				<h3 class="text-xl font-medium text-orange-500">
-					Group 6: Sensory & Environmental
-				</h3>
-				<ul>
-					<li>Difficulty filtering out background noise</li>
-					<li>Hyper- or hypo-sensitivity to temperature</li>
-					<li>
-						Sensory sensitivities (e.g., light, sound, textures)
-					</li>
-					<li>Aversion to loud noises</li>
-					<li>Sensory overload in crowded spaces</li>
-					<li>Fascination with patterns or numbers</li>
-					<li>Tendency to zone out or daydream</li>
-					<li>Difficulty initiating or maintaining conversations</li>
-					<li>Sensory overload in crowded spaces</li>
-					<li>
-						Sensory sensitivities (e.g., light, sound, textures)
-					</li>
-				</ul>
-			</li>
-		</ol>
+		<div>Preference for direct, literal communication</div>
+		<div>Social anxiety</div>
+		<div>Stimming (repetitive movements like hand-flapping)</div>
+		<div>High intelligence or giftedness in specific areas</div>
+		<div>Issues with motor coordination or clumsiness</div>
+		<div>Difficulty filtering out background noise</div>
+		<div>Struggles with small talk</div>
+		<div>Preference for predictable environments</div>
+		<div>High sensitivity to criticism</div>
+		<div>Intense interest in specific subjects</div>
+		<div>Meltdowns or shutdowns under stress</div>
+		<div>Hyper- or hypo-sensitivity to temperature</div>
+		<div>Difficulty understanding unspoken social rules</div>
+		<div>Difficulty adjusting to new situations</div>
+		<div>Rigidity in thinking or problem-solving</div>
+		<div>Hyperfocus on specific topics or interests</div>
+		<div>Difficulty empathizing in typical ways</div>
+		<div>Emotional sensitivity</div>
+		<div>Difficulty processing verbal instructions</div>
+		<div>Difficulty with changes in plans</div>
+		<div>Fascination with patterns or numbers</div>
+		<div>Obsessive interests that may shift over time</div>
+		<div>Tendency to mimic others' behaviors as a coping strategy</div>
+		<div>Difficulty recognizing or expressing emotions</div>
+		<div>Delayed response in conversations</div>
+		<div>Preference for routines and consistency</div>
+		<div>High attention to detail</div>
+		<div>Obsessive interests that may dominate daily life</div>
+		<div>Difficulty making eye contact</div>
+		<div>High sensitivity to feedback or criticism</div>
+		<div>Difficulty understanding metaphors</div>
+		<div>Inflexibility in opinions or routines</div>
+		<div>Highly analytical thinking style</div>
+		<div>Difficulty with multitasking</div>
+		<div>Strong sense of justice or fairness</div>
+		<div>Difficulty understanding the perspectives of others</div>
+		<div>Difficulty reading facial expressions</div>
+		<div>Preference for factual information over abstract concepts</div>
+		<div>Tendency to overthink or ruminate</div>
+		<div>Difficulty with executive functioning (planning, organizing)</div>
+		<div>Aversion to being touched or hugged unexpectedly</div>
+		<div>Aversion to loud noises</div>
+		<div>Difficulty understanding sarcasm or jokes</div>
+		<div>Fixation on specific routines or rituals</div>
+		<div>Fascination with specific objects or textures</div>
+		<div>Difficulty with time management</div>
+		<div>Strong dislike of uncertainty</div>
+		<div>Literal interpretation of language</div>
+		<div>Strong dislike of lying or dishonesty</div>
+		<div>Difficulty understanding social cues</div>
+		<div>Repetitive behaviors or speech</div>
+		<div>Difficulty forming and maintaining friendships</div>
+		<div>Poor understanding of personal space</div>
+		<div>Aversion to strong smells</div>
+		<div>Tendency to monologue on interests</div>
+		<div>Preference for solo activities</div>
+		<div>Tendency to zone out or daydream</div>
+		<div>Difficulty initiating or maintaining conversations</div>
+		<div>Sensory overload in crowded spaces</div>
+		<div>Sensory sensitivities (e.g., light, sound, textures)</div>
 	</div>
 
 	<div class="text-center">
@@ -219,8 +146,6 @@
 <style>
 	.hex-grid {
 		display: grid;
-		grid-template-columns: repeat(10, 1fr);
-		grid-template-rows: repeat(9, 1fr);
 		width: fit-content;
 		max-width: 100%;
 		margin: 0 auto;
@@ -236,312 +161,312 @@
 			0% 75%,
 			0% 25%
 		);
-
 		background: lightgrey;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		font-weight: bold;
-		width: 4rem;
+		width: 5rem;
+		overflow: hidden;
 	}
 
 	.hex-grid div:nth-of-type(1) {
-		grid-column: 4;
+		grid-column: 3;
 		grid-row: 1;
 		transform: translateX(-50%);
 	}
 	.hex-grid div:nth-of-type(2) {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 1;
 		transform: translateY(75%);
 	}
 	.hex-grid div:nth-of-type(3) {
-		grid-column: 4;
+		grid-column: 3;
 		grid-row: 1;
 		transform: translateY(75%);
 	}
 	.hex-grid div:nth-of-type(4) {
-		grid-column: 5;
+		grid-column: 4;
 		grid-row: 2;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(5) {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 2;
 		transform: translate(-50%, 50%);
 	}
 	.hex-grid div:nth-of-type(6) {
-		grid-column: 4;
+		grid-column: 3;
 		grid-row: 2;
 		transform: translate(-50%, 50%);
 	}
 	.hex-grid div:nth-of-type(7) {
-		grid-column: 5;
+		grid-column: 4;
 		grid-row: 2;
 		transform: translate(-50%, 50%);
 	}
 	.hex-grid div:nth-of-type(8) {
-		grid-column: 5;
+		grid-column: 4;
 		grid-row: 2;
 		transform: translate(50%, 50%);
 	}
 	.hex-grid div:nth-of-type(9) {
-		grid-column: 5;
+		grid-column: 4;
 		grid-row: 3;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(10) {
-		grid-column: 6;
+		grid-column: 5;
 		grid-row: 3;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(11) {
-		grid-column: 8;
+		grid-column: 7;
 		grid-row: 1;
 		transform: translateX(50%);
 	}
 	.hex-grid div:nth-of-type(12) {
-		grid-column: 9;
+		grid-column: 8;
 		grid-row: 1;
 		transform: translateY(75%);
 	}
 	.hex-grid div:nth-of-type(13) {
-		grid-column: 8;
+		grid-column: 7;
 		grid-row: 1;
 		transform: translateY(75%);
 	}
 	.hex-grid div:nth-of-type(14) {
-		grid-column: 7;
+		grid-column: 6;
 		grid-row: 2;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(15) {
-		grid-column: 9;
+		grid-column: 8;
 		grid-row: 2;
 		transform: translate(50%, 50%);
 	}
 	.hex-grid div:nth-of-type(16) {
-		grid-column: 8;
+		grid-column: 7;
 		grid-row: 2;
 		transform: translate(50%, 50%);
 	}
 	.hex-grid div:nth-of-type(17) {
-		grid-column: 7;
+		grid-column: 6;
 		grid-row: 2;
 		transform: translate(50%, 50%);
 	}
 	.hex-grid div:nth-of-type(18) {
-		grid-column: 6;
+		grid-column: 5;
 		grid-row: 2;
 		transform: translate(50%, 50%);
 	}
 	.hex-grid div:nth-of-type(19) {
-		grid-column: 7;
+		grid-column: 6;
 		grid-row: 3;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(20) {
-		grid-column: 7;
+		grid-column: 6;
 		grid-row: 4;
 		transform: translateX(-50%);
 	}
 	.hex-grid div:nth-of-type(21) {
-		grid-column: 10;
+		grid-column: 9;
 		grid-row: 4;
 		transform: translateX(50%);
 	}
 	.hex-grid div:nth-of-type(22) {
-		grid-column: 10;
+		grid-column: 9;
 		grid-row: 3;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(23) {
-		grid-column: 10;
+		grid-column: 9;
 		grid-row: 5;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(24) {
-		grid-column: 9;
+		grid-column: 8;
 		grid-row: 4;
 		transform: translateX(50%);
 	}
 	.hex-grid div:nth-of-type(25) {
-		grid-column: 9;
+		grid-column: 8;
 		grid-row: 3;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(26) {
-		grid-column: 9;
+		grid-column: 8;
 		grid-row: 5;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(27) {
-		grid-column: 8;
+		grid-column: 7;
 		grid-row: 4;
 		transform: translateX(50%);
 	}
 	.hex-grid div:nth-of-type(28) {
-		grid-column: 8;
+		grid-column: 7;
 		grid-row: 3;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(29) {
-		grid-column: 8;
+		grid-column: 7;
 		grid-row: 5;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(30) {
-		grid-column: 7;
+		grid-column: 6;
 		grid-row: 4;
 		transform: translateX(50%);
 	}
 	.hex-grid div:nth-of-type(31) {
-		grid-column: 8;
+		grid-column: 7;
 		grid-row: 7;
 		transform: translateX(50%);
 	}
 	.hex-grid div:nth-of-type(32) {
-		grid-column: 9;
+		grid-column: 8;
 		grid-row: 7;
 		transform: translateY(-75%);
 	}
 	.hex-grid div:nth-of-type(33) {
-		grid-column: 8;
+		grid-column: 7;
 		grid-row: 7;
 		transform: translateY(-75%);
 	}
 	.hex-grid div:nth-of-type(34) {
-		grid-column: 7;
+		grid-column: 6;
 		grid-row: 6;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(35) {
-		grid-column: 9;
-		grid-row: 6;
-		transform: translate(50%, -50%);
-	}
-	.hex-grid div:nth-of-type(36) {
 		grid-column: 8;
 		grid-row: 6;
 		transform: translate(50%, -50%);
 	}
-	.hex-grid div:nth-of-type(37) {
+	.hex-grid div:nth-of-type(36) {
 		grid-column: 7;
 		grid-row: 6;
 		transform: translate(50%, -50%);
 	}
+	.hex-grid div:nth-of-type(37) {
+		grid-column: 6;
+		grid-row: 6;
+		transform: translate(50%, -50%);
+	}
 	.hex-grid div:nth-of-type(38) {
-		grid-column: 7;
+		grid-column: 6;
 		grid-row: 6;
 		transform: translate(-50%, -50%);
 	}
 	.hex-grid div:nth-of-type(39) {
-		grid-column: 7;
+		grid-column: 6;
 		grid-row: 5;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(40) {
-		grid-column: 6;
+		grid-column: 5;
 		grid-row: 5;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(41) {
-		grid-column: 4;
+		grid-column: 3;
 		grid-row: 7;
 		transform: translateX(-50%);
 	}
 	.hex-grid div:nth-of-type(42) {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 7;
 		transform: translateY(-75%);
 	}
 	.hex-grid div:nth-of-type(43) {
-		grid-column: 4;
+		grid-column: 3;
 		grid-row: 7;
 		transform: translateY(-75%);
 	}
 	.hex-grid div:nth-of-type(44) {
-		grid-column: 5;
+		grid-column: 4;
 		grid-row: 6;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(45) {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 6;
 		transform: translate(-50%, -50%);
 	}
 	.hex-grid div:nth-of-type(46) {
-		grid-column: 4;
+		grid-column: 3;
 		grid-row: 6;
 		transform: translate(-50%, -50%);
 	}
 	.hex-grid div:nth-of-type(47) {
-		grid-column: 5;
+		grid-column: 4;
 		grid-row: 6;
 		transform: translate(-50%, -50%);
 	}
 	.hex-grid div:nth-of-type(48) {
-		grid-column: 6;
+		grid-column: 5;
 		grid-row: 6;
 		transform: translate(-50%, -50%);
 	}
 	.hex-grid div:nth-of-type(49) {
-		grid-column: 5;
+		grid-column: 4;
 		grid-row: 5;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(50) {
-		grid-column: 5;
+		grid-column: 4;
 		grid-row: 4;
 		transform: translateX(50%);
 	}
 	.hex-grid div:nth-of-type(51) {
-		grid-column: 2;
+		grid-column: 1;
 		grid-row: 4;
 		transform: translateX(-50%);
 	}
 	.hex-grid div:nth-of-type(52) {
-		grid-column: 2;
+		grid-column: 1;
 		grid-row: 5;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(53) {
-		grid-column: 2;
+		grid-column: 1;
 		grid-row: 3;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(54) {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 4;
 		transform: translateX(-50%);
 	}
 	.hex-grid div:nth-of-type(55) {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 3;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(56) {
-		grid-column: 3;
+		grid-column: 2;
 		grid-row: 5;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(57) {
-		grid-column: 4;
+		grid-column: 3;
 		grid-row: 4;
 		transform: translateX(-50%);
 	}
 	.hex-grid div:nth-of-type(58) {
-		grid-column: 4;
+		grid-column: 3;
 		grid-row: 5;
 		transform: translateY(-25%);
 	}
 	.hex-grid div:nth-of-type(59) {
-		grid-column: 4;
+		grid-column: 3;
 		grid-row: 3;
 		transform: translateY(25%);
 	}
 	.hex-grid div:nth-of-type(60) {
-		grid-column: 5;
+		grid-column: 4;
 		grid-row: 4;
 		transform: translateX(-50%);
 	}
@@ -569,10 +494,10 @@
 		background: hwb(340 0% 0%);
 	}
 	.hex-grid div:nth-of-type(8) {
-		background: hwb(345 0% 0%);
+		background: hwb(20 0% 0%);
 	}
 	.hex-grid div:nth-of-type(9) {
-		background: hwb(20 0% 0%);
+		background: hwb(345 0% 0%);
 	}
 	.hex-grid div:nth-of-type(10) {
 		background: hwb(25 0% 0%);
@@ -604,10 +529,10 @@
 		background: hwb(35 0% 0%);
 	}
 	.hex-grid div:nth-of-type(19) {
-		background: hwb(85 0% 0%);
+		background: hwb(95 0% 0%);
 	}
 	.hex-grid div:nth-of-type(20) {
-		background: hwb(95 0% 0%);
+		background: hwb(97 0% 0%);
 	}
 
 	/* Group 3: Shades of Green/Blue-Green (Hexagons 21-30) */
@@ -630,16 +555,16 @@
 		background: hwb(145 0% 0%);
 	}
 	.hex-grid div:nth-of-type(27) {
-		background: hwb(150 0% 0%);
+		background: hwb(115 0% 0%);
 	}
 	.hex-grid div:nth-of-type(28) {
-		background: hwb(97 0% 0%);
+		background: hwb(85 0% 0%);
 	}
 	.hex-grid div:nth-of-type(29) {
 		background: hwb(140 0% 0%);
 	}
 	.hex-grid div:nth-of-type(30) {
-		background: hwb(115 0% 0%);
+		background: hwb(110 0% 0%);
 	}
 
 	/* Group 4: Shades of Blue (Hexagons 31-40) */
@@ -668,7 +593,7 @@
 		background: hwb(200 0% 0%);
 	}
 	.hex-grid div:nth-of-type(39) {
-		background: hwb(110 0% 0%);
+		background: hwb(150 0% 0%);
 	}
 	.hex-grid div:nth-of-type(40) {
 		background: hwb(300 0% 0%);
