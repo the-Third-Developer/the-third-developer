@@ -425,12 +425,115 @@
         return typeColors[type] || 'text-gray-300';
     }
 
+    function getPokemonTypeColors(types) {
+        const typeBackgrounds = {
+            'Normal': 'from-gray-400 to-gray-300',
+            'Fire': 'from-red-500 to-orange-400',
+            'Water': 'from-blue-500 to-blue-400',
+            'Electric': 'from-yellow-400 to-yellow-300',
+            'Grass': 'from-green-500 to-green-400',
+            'Ice': 'from-cyan-400 to-cyan-300',
+            'Fighting': 'from-red-700 to-red-600',
+            'Poison': 'from-purple-500 to-purple-400',
+            'Ground': 'from-yellow-700 to-yellow-600',
+            'Flying': 'from-indigo-400 to-indigo-300',
+            'Psychic': 'from-pink-500 to-pink-400',
+            'Bug': 'from-lime-500 to-lime-400',
+            'Rock': 'from-yellow-800 to-yellow-700',
+            'Ghost': 'from-purple-700 to-purple-600',
+            'Dragon': 'from-indigo-600 to-indigo-500',
+            'Dark': 'from-gray-700 to-gray-600',
+            'Steel': 'from-gray-500 to-gray-400',
+            'Fairy': 'from-pink-400 to-pink-300'
+        };
+
+        if (types.length === 1) {
+            return `bg-gradient-to-r ${typeBackgrounds[types[0]]}`;
+        } else {
+            return `bg-gradient-to-r ${typeBackgrounds[types[0]]} via-gray-600 ${typeBackgrounds[types[1]].replace('from-', 'to-')}`;
+        }
+    }
+
 </script>
 
 <div class="bg-gray-900 text-gray-200 min-h-screen flex flex-col items-center py-4 px-2">
     <h1 class="text-2xl sm:text-3xl font-bold text-yellow-500 mb-4 sm:mb-6">Pokémon Calculator</h1>
 
     <div class="w-full max-w-7xl">
+        <!-- Pokemon Selection Section - Always at top on mobile -->
+        <div class="mb-4 bg-gray-800 p-4 rounded-lg shadow-md">
+            <h2 class="text-lg font-semibold text-yellow-500 mb-4">Pokémon Selection</h2>
+            
+            <!-- Tier Selector -->
+            <div class="space-y-2 mb-4">
+                <div class="flex justify-between items-center mb-2">
+                    <label class="text-sm font-medium text-blue-400">Tiers</label>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-gray-400">Single Select</span>
+                        <button
+                            class="px-3 py-1 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500
+                                   {singleSelectMode ? 'bg-yellow-500 text-gray-900' : 'bg-gray-700 hover:bg-gray-600'}"
+                            on:click={() => {
+                                singleSelectMode = !singleSelectMode;
+                                if (singleSelectMode) {
+                                    const selectedTierEntries = Object.entries(selectedTiers).filter(([_, isSelected]) => isSelected);
+                                    const firstSelectedTier = selectedTierEntries[0]?.[0];
+                                    if (firstSelectedTier) {
+                                        selectedTiers = {
+                                            S: false, A: false, B: false, C: false,
+                                            D: false, E: false, F: false,
+                                            [firstSelectedTier]: true
+                                        };
+                                    }
+                                }
+                            }}
+                        >
+                            {singleSelectMode ? 'On' : 'Off'}
+                        </button>
+                    </div>
+                </div>
+                <div class="flex gap-2 overflow-x-auto pb-2">
+                    {#each Object.keys(selectedTiers) as tier}
+                        <button
+                            class="flex-none px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500
+                                   {selectedTiers[tier] ? 'bg-yellow-500 text-gray-900' : 'bg-gray-700 hover:bg-gray-600'}"
+                            on:click={() => handleTierSelect(tier)}
+                        >
+                            {tier}
+                        </button>
+                    {/each}
+                </div>
+            </div>
+
+            <!-- Pokemon Search and List -->
+            <div class="space-y-2">
+                <input
+                    type="text"
+                    bind:value={searchQuery}
+                    placeholder="Search Pokémon..."
+                    class="w-full p-2 rounded bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                />
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1 max-h-48 overflow-y-auto bg-gray-700 p-2 rounded">
+                    {#each filteredPokemon as [name, data]}
+                        <button 
+                            class="p-2 text-sm text-center transition-colors rounded whitespace-nowrap overflow-hidden text-ellipsis
+                                transition-all duration-300 hover:scale-105
+                                {selectedPokemon?.name === name 
+                                    ? 'ring-2 ring-yellow-500 text-white' 
+                                    : 'hover:ring-2 hover:ring-gray-400 text-white'}
+                                {getPokemonTypeColors(data.types)}"
+                            on:click={() => {
+                                const event = { target: { value: name } };
+                                handlePokemonSelect(event);
+                            }}
+                        >
+                            <span class="font-medium p-2 bg-black/[.54] rounded">[{getPokemonTier(name)}] {name}</span>
+                        </button>
+                    {/each}
+                </div>
+            </div>
+        </div>
+
         <!-- Main Grid with Sidebar -->
         <div class="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-4 sm:gap-6">
             <!-- Sidebar -->
@@ -472,18 +575,12 @@
                                     </div>
                                     <div class="flex gap-1">
                                         <button
-                                            class="flex-1 px-2 py-1 text-xs bg-gray-600 rounded hover:bg-gray-500"
-                                            on:click={() => {
-                                                ivs[stat] = Math.max(0, value - 1);
-                                                ivs = ivs; // Trigger reactivity
-                                            }}
+                                            class="flex-1 px-2 py-1 text-xs bg-red-900 hover:bg-red-800 rounded text-white transition-colors"
+                                            on:click={() => adjustStatValue(stat, 'iv', -1)}
                                         >-</button>
                                         <button
-                                            class="flex-1 px-2 py-1 text-xs bg-gray-600 rounded hover:bg-gray-500"
-                                            on:click={() => {
-                                                ivs[stat] = Math.min(MAX_IV, value + 1);
-                                                ivs = ivs; // Trigger reactivity
-                                            }}
+                                            class="flex-1 px-2 py-1 text-xs bg-blue-900 hover:bg-blue-800 rounded text-white transition-colors"
+                                            on:click={() => adjustStatValue(stat, 'iv', 1)}
                                         >+</button>
                                     </div>
                                 </div>
@@ -515,17 +612,17 @@
                                     </div>
                                     <div class="flex gap-1">
                                         <button
-                                            class="flex-1 px-2 py-1 text-xs bg-gray-600 rounded hover:bg-gray-500"
+                                            class="flex-1 px-2 py-1 text-xs bg-red-900 hover:bg-red-800 rounded text-white transition-colors"
                                             on:click={() => {
                                                 evs[stat] = Math.max(0, value - 4);
-                                                evs = evs; // Trigger reactivity
+                                                evs = evs;
                                             }}
                                         >-</button>
                                         <button
-                                            class="flex-1 px-2 py-1 text-xs bg-gray-600 rounded hover:bg-gray-500"
+                                            class="flex-1 px-2 py-1 text-xs bg-blue-900 hover:bg-blue-800 rounded text-white transition-colors"
                                             on:click={() => {
                                                 evs[stat] = Math.min(MAX_EV, value + 4);
-                                                evs = evs; // Trigger reactivity
+                                                evs = evs;
                                             }}
                                         >+</button>
                                     </div>
@@ -538,168 +635,99 @@
 
             <!-- Main Content Area -->
             <div class="space-y-4">
-                <!-- Pokemon Selection Section -->
-                <div class="bg-gray-800 p-4 rounded-lg shadow-md">
-                    <h2 class="text-lg font-semibold text-yellow-500 mb-4">Pokémon Selection</h2>
-                    <!-- Tier Selector -->
-                    <div class="space-y-2 mb-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="text-sm font-medium text-blue-400">Tiers</label>
-                            <div class="flex items-center gap-2">
-                                <span class="text-sm text-gray-400">Single Select</span>
-                                <button
-                                    class="px-3 py-1 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500
-                                           {singleSelectMode ? 'bg-yellow-500 text-gray-900' : 'bg-gray-700 hover:bg-gray-600'}"
-                                    on:click={() => {
-                                        singleSelectMode = !singleSelectMode;
-                                        if (singleSelectMode) {
-                                            const selectedTierEntries = Object.entries(selectedTiers).filter(([_, isSelected]) => isSelected);
-                                            const firstSelectedTier = selectedTierEntries[0]?.[0];
-                                            if (firstSelectedTier) {
-                                                selectedTiers = {
-                                                    S: false, A: false, B: false, C: false,
-                                                    D: false, E: false, F: false,
-                                                    [firstSelectedTier]: true
-                                                };
-                                            }
-                                        }
-                                    }}
-                                >
-                                    {singleSelectMode ? 'On' : 'Off'}
-                                </button>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            {#each Object.keys(selectedTiers) as tier}
-                                <button
-                                    class="flex-1 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500
-                                           {selectedTiers[tier] ? 'bg-yellow-500 text-gray-900' : 'bg-gray-700 hover:bg-gray-600'}"
-                                    on:click={() => handleTierSelect(tier)}
-                                >
-                                    {tier}
-                                </button>
-                            {/each}
-                        </div>
-                    </div>
-
-                    <!-- Pokemon Search and List -->
-                    <div class="space-y-2">
-                        <label class="block text-sm font-medium text-blue-400">Pokémon Selection</label>
-                        <input
-                            type="text"
-                            bind:value={searchQuery}
-                            placeholder="Search Pokémon..."
-                            class="w-full p-2 rounded bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                        />
-                        <div class="grid grid-cols-4 gap-1 max-h-48 overflow-y-auto bg-gray-700 p-2 rounded">
-                            {#each filteredPokemon as [name]}
-                                <button 
-                                    class="p-2 text-sm text-center transition-colors rounded
-                                        {selectedPokemon?.name === name 
-                                            ? 'bg-yellow-500 text-gray-900' 
-                                            : 'bg-gray-800 hover:bg-gray-700'}"
-                                    on:click={() => {
-                                        const event = { target: { value: name } };
-                                        handlePokemonSelect(event);
-                                    }}
-                                >
-                                    [{getPokemonTier(name)}] {name}
-                                </button>
-                            {/each}
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Nature Grid -->
                 <div class="bg-gray-800 p-4 rounded-lg shadow-md">
                     <h2 class="text-lg font-semibold text-yellow-500 mb-4">Nature Selection</h2>
-                    <div class="w-full">
-                        <table class="w-full text-xs">
-                            <thead>
-                                <tr>
-                                    <th class="w-[80px]"></th>
-                                    {#each natureGrid.decreased as stat}
-                                        <th class="text-center whitespace-nowrap px-1">
-                                            <span class="inline-flex items-center justify-center w-full gap-2">
-                                                {#if stat === 'attack'}
-                                                    <span class="text-red-400">Attack</span>
-                                                {:else if stat === 'defense'}
-                                                    <span class="text-yellow-400">Defense</span>
-                                                {:else if stat === 'specialAttack'}
-                                                    <span class="text-purple-400">Sp. Attack</span>
-                                                {:else if stat === 'specialDefense'}
-                                                    <span class="text-green-400">Sp. Defense</span>
-                                                {:else}
-                                                    <span class="text-pink-400">Speed</span>
-                                                {/if}
-                                                <span class="text-red-400">↓</span>
-                                            </span>
-                                        </th>
-                                    {/each}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {#each natureGrid.increased as increasedStat, rowIndex}
+                    <div class="w-full overflow-x-auto">
+                        <div class="min-w-[600px]"> <!-- Minimum width to prevent squishing -->
+                            <table class="w-full text-xs">
+                                <thead>
                                     <tr>
-                                        <th class="text-left whitespace-nowrap px-1">
-                                            <span class="inline-flex items-center justify-between w-full gap-2">
-                                                {#if increasedStat === 'attack'}
-                                                    <span class="text-red-400">Attack</span>
-                                                {:else if increasedStat === 'defense'}
-                                                    <span class="text-yellow-400">Defense</span>
-                                                {:else if increasedStat === 'specialAttack'}
-                                                    <span class="text-purple-400">Sp. Attack</span>
-                                                {:else if increasedStat === 'specialDefense'}
-                                                    <span class="text-green-400">Sp. Defense</span>
-                                                {:else}
-                                                    <span class="text-pink-400">Speed</span>
-                                                {/if}
-                                                <span class="text-green-400">↑</span>
-                                            </span>
-                                        </th>
-                                        {#each natureGrid.decreased as decreasedStat, colIndex}
-                                            {@const colors = {
-                                                'attack': 'bg-red-200',
-                                                'defense': 'bg-yellow-200',
-                                                'specialAttack': 'bg-blue-200',
-                                                'specialDefense': 'bg-green-200',
-                                                'speed': 'bg-pink-200'
-                                            }}
-                                            {@const blendedColors = {
-                                                'attack_defense': 'bg-orange-200',
-                                                'attack_specialAttack': 'bg-purple-200',
-                                                'attack_specialDefense': 'bg-rose-200',
-                                                'attack_speed': 'bg-red-100',
-                                                'defense_specialAttack': 'bg-emerald-200',
-                                                'defense_specialDefense': 'bg-lime-200',
-                                                'defense_speed': 'bg-amber-200',
-                                                'specialAttack_specialDefense': 'bg-teal-200',
-                                                'specialAttack_speed': 'bg-sky-200',
-                                                'specialDefense_speed': 'bg-cyan-200'
-                                            }}
-                                            {@const colorKey = [increasedStat, decreasedStat].sort().join('_')}
-                                            <td class="p-0.5 text-center border border-gray-700">
-                                                <button 
-                                                    class="w-full p-1 text-center text-xs transition-colors rounded
-                                                        {selectedNature === getNatureName(increasedStat, decreasedStat)
-                                                            ? `${increasedStat === decreasedStat 
-                                                                ? 'bg-gray-600 text-gray-200' 
-                                                                : `${blendedColors[colorKey] || colors[increasedStat]} text-gray-900`}`
-                                                            : increasedStat === decreasedStat
-                                                                ? 'bg-gray-700 text-gray-400 hover:bg-gray-600'
-                                                                : `${blendedColors[colorKey] || colors[increasedStat]} text-gray-900 opacity-25 hover:opacity-40`}"
-                                                    on:click={() => selectedNature = getNatureName(increasedStat, decreasedStat)}
-                                                >
-                                                    {getNatureName(increasedStat, decreasedStat)}
-                                                </button>
-                                            </td>
+                                        <th class="w-[80px]"></th>
+                                        {#each natureGrid.decreased as stat}
+                                            <th class="text-center whitespace-nowrap px-1">
+                                                <span class="inline-flex items-center justify-center w-full gap-2">
+                                                    {#if stat === 'attack'}
+                                                        <span class="text-red-400">Attack</span>
+                                                    {:else if stat === 'defense'}
+                                                        <span class="text-yellow-400">Defense</span>
+                                                    {:else if stat === 'specialAttack'}
+                                                        <span class="text-purple-400">Sp. Attack</span>
+                                                    {:else if stat === 'specialDefense'}
+                                                        <span class="text-green-400">Sp. Defense</span>
+                                                    {:else}
+                                                        <span class="text-pink-400">Speed</span>
+                                                    {/if}
+                                                    <span class="text-red-400">↓</span>
+                                                </span>
+                                            </th>
                                         {/each}
                                     </tr>
-                                {/each}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {#each natureGrid.increased as increasedStat, rowIndex}
+                                        <tr>
+                                            <th class="text-left whitespace-nowrap px-1">
+                                                <span class="inline-flex items-center justify-between w-full gap-2">
+                                                    {#if increasedStat === 'attack'}
+                                                        <span class="text-red-400">Attack</span>
+                                                    {:else if increasedStat === 'defense'}
+                                                        <span class="text-yellow-400">Defense</span>
+                                                    {:else if increasedStat === 'specialAttack'}
+                                                        <span class="text-purple-400">Sp. Attack</span>
+                                                    {:else if increasedStat === 'specialDefense'}
+                                                        <span class="text-green-400">Sp. Defense</span>
+                                                    {:else}
+                                                        <span class="text-pink-400">Speed</span>
+                                                    {/if}
+                                                    <span class="text-green-400">↑</span>
+                                                </span>
+                                            </th>
+                                            {#each natureGrid.decreased as decreasedStat, colIndex}
+                                                {@const colors = {
+                                                    'attack': 'bg-red-200',
+                                                    'defense': 'bg-yellow-200',
+                                                    'specialAttack': 'bg-blue-200',
+                                                    'specialDefense': 'bg-green-200',
+                                                    'speed': 'bg-pink-200'
+                                                }}
+                                                {@const blendedColors = {
+                                                    'attack_defense': 'bg-orange-200',
+                                                    'attack_specialAttack': 'bg-purple-200',
+                                                    'attack_specialDefense': 'bg-rose-200',
+                                                    'attack_speed': 'bg-red-100',
+                                                    'defense_specialAttack': 'bg-emerald-200',
+                                                    'defense_specialDefense': 'bg-lime-200',
+                                                    'defense_speed': 'bg-amber-200',
+                                                    'specialAttack_specialDefense': 'bg-teal-200',
+                                                    'specialAttack_speed': 'bg-sky-200',
+                                                    'specialDefense_speed': 'bg-cyan-200'
+                                                }}
+                                                {@const colorKey = [increasedStat, decreasedStat].sort().join('_')}
+                                                <td class="p-0.5 text-center border border-gray-700">
+                                                    <button 
+                                                        class="w-full p-1 text-center text-xs transition-colors rounded
+                                                            {selectedNature === getNatureName(increasedStat, decreasedStat)
+                                                                ? `${increasedStat === decreasedStat 
+                                                                    ? 'bg-gray-600 text-gray-200' 
+                                                                    : `${blendedColors[colorKey] || colors[increasedStat]} text-gray-900`}`
+                                                                : increasedStat === decreasedStat
+                                                                    ? 'bg-gray-700 text-gray-400 hover:bg-gray-600'
+                                                                    : `${blendedColors[colorKey] || colors[increasedStat]} text-gray-900 opacity-25 hover:opacity-40`}"
+                                                        on:click={() => selectedNature = getNatureName(increasedStat, decreasedStat)}
+                                                    >
+                                                        {getNatureName(increasedStat, decreasedStat)}
+                                                    </button>
+                                                </td>
+                                            {/each}
+                                        </tr>
+                                    {/each}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
                 <!-- Stats and Move Calculator Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Stats Display -->
@@ -774,9 +802,9 @@
                         {/if}
 
                         <!-- Type Effectiveness and STAB Controls -->
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid md:grid-cols-2 gap-4">
                             <!-- Type Effectiveness Circle -->
-                            <div class="space-y-2">
+                            <div class="space-y-2 flex flex-col items-center">
                                 <label class="block text-sm font-medium text-blue-400">Type Effectiveness</label>
                                 <div class="relative w-48 h-48">
                                     {#each typeEffectivenessOptions as option, i}
