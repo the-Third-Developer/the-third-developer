@@ -129,9 +129,12 @@
 
     function handlePokemonSelect(event) {
         const selectedPokemonName = event.target.value;
-        selectedPokemon = allPokemon.find(([name]) => name === selectedPokemonName)?.[1];
-        if (selectedPokemon) {
-            selectedPokemon.name = selectedPokemonName;
+        const pokemonData = allPokemon.find(([name]) => name === selectedPokemonName)?.[1];
+        if (pokemonData) {
+            selectedPokemon = {
+                ...pokemonData,
+                name: selectedPokemonName
+            };
         }
     }
 
@@ -302,7 +305,7 @@
         }
     }
 
-    $: filteredPokemon = allPokemon.filter(([name]) => {
+    $: filteredPokemon = allPokemon.filter(([name, data]) => {
         const tier = getPokemonTier(name);
         const matchesTier = !Object.values(selectedTiers).some(value => value) || selectedTiers[tier];
         const matchesSearch = name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -517,17 +520,20 @@
                     {#each filteredPokemon as [name, data]}
                         <button 
                             class="p-2 text-sm text-center transition-colors rounded whitespace-nowrap overflow-hidden text-ellipsis
-                                transition-all duration-300 hover:scale-105
+                                transition-all duration-300 hover:scale-105 relative
                                 {selectedPokemon?.name === name 
-                                    ? 'ring-2 ring-yellow-500 text-white' 
-                                    : 'hover:ring-2 hover:ring-gray-400 text-white'}
+                                    ? 'ring-2 ring-yellow-500 ring-opacity-100 scale-105' 
+                                    : 'hover:ring-2 hover:ring-gray-400'}
                                 {getPokemonTypeColors(data.types)}"
                             on:click={() => {
-                                const event = { target: { value: name } };
-                                handlePokemonSelect(event);
+                                selectedPokemon = {
+                                    ...data,
+                                    name: name
+                                };
                             }}
                         >
-                            <span class="font-medium p-2 bg-black/[.54] rounded">[{getPokemonTier(name)}] {name}</span>
+                            <span class="font-medium relative z-10">[{getPokemonTier(name)}] {name}</span>
+                            <div class="absolute inset-0 bg-black opacity-40"></div>
                         </button>
                     {/each}
                 </div>
@@ -569,18 +575,24 @@
                                             class="w-14 px-1 py-0.5 text-sm bg-gray-600 rounded text-right"
                                             on:change={() => {
                                                 ivs[stat] = Math.min(Math.max(ivs[stat], 0), MAX_IV);
-                                                ivs = ivs; // Trigger reactivity
+                                                ivs = {...ivs}; // Trigger reactivity
                                             }}
                                         />
                                     </div>
                                     <div class="flex gap-1">
                                         <button
                                             class="flex-1 px-2 py-1 text-xs bg-red-900 hover:bg-red-800 rounded text-white transition-colors"
-                                            on:click={() => adjustStatValue(stat, 'iv', -1)}
+                                            on:click={() => {
+                                                ivs[stat] = Math.max(0, ivs[stat] - 1);
+                                                ivs = {...ivs}; // Trigger reactivity
+                                            }}
                                         >-</button>
                                         <button
                                             class="flex-1 px-2 py-1 text-xs bg-blue-900 hover:bg-blue-800 rounded text-white transition-colors"
-                                            on:click={() => adjustStatValue(stat, 'iv', 1)}
+                                            on:click={() => {
+                                                ivs[stat] = Math.min(MAX_IV, ivs[stat] + 1);
+                                                ivs = {...ivs}; // Trigger reactivity
+                                            }}
                                         >+</button>
                                     </div>
                                 </div>
@@ -606,7 +618,7 @@
                                                 evs[stat] = Math.min(Math.max(evs[stat], 0), MAX_EV);
                                                 // Round to nearest 4
                                                 evs[stat] = Math.round(evs[stat] / 4) * 4;
-                                                evs = evs; // Trigger reactivity
+                                                evs = {...evs}; // Trigger reactivity
                                             }}
                                         />
                                     </div>
@@ -614,15 +626,15 @@
                                         <button
                                             class="flex-1 px-2 py-1 text-xs bg-red-900 hover:bg-red-800 rounded text-white transition-colors"
                                             on:click={() => {
-                                                evs[stat] = Math.max(0, value - 4);
-                                                evs = evs;
+                                                evs[stat] = Math.max(0, evs[stat] - 4);
+                                                evs = {...evs}; // Trigger reactivity
                                             }}
                                         >-</button>
                                         <button
                                             class="flex-1 px-2 py-1 text-xs bg-blue-900 hover:bg-blue-800 rounded text-white transition-colors"
                                             on:click={() => {
-                                                evs[stat] = Math.min(MAX_EV, value + 4);
-                                                evs = evs;
+                                                evs[stat] = Math.min(MAX_EV, evs[stat] + 4);
+                                                evs = {...evs}; // Trigger reactivity
                                             }}
                                         >+</button>
                                     </div>
