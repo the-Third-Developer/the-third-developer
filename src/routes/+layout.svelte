@@ -1,10 +1,44 @@
 <script>
+	import { onMount } from 'svelte';
 	import '../app.css';
 
-	const navItems = [{ href: '/pokemon-calculations', label: 'Pokemon Calc' }];
+	const navItems = [
+		{ href: '/', label: 'Home' },
+		{ href: '/history-map', label: 'Historical Map' },
+		{ href: '/pokemon-calculations', label: 'Pokemon Calc' },
+	];
+
+	let keySequence = '';
+	const showWord = 'show';
+	const hideWord = 'hide';
+
+	function handleKeydown(e) {
+		// For the word detection, only handle alphabetical keys
+		if (!/^[a-zA-Z]$/.test(e.key)) return;
+
+		keySequence += e.key.toLowerCase();
+
+		// Keep only the last 6 characters (length of 'hide')
+		if (keySequence.length > hideWord.length) {
+			keySequence = keySequence.slice(-hideWord.length);
+		}
+
+		// Check if the sequence matches either word
+		if (keySequence === showWord) {
+			document.querySelector('nav').classList.remove('hidden');
+			keySequence = ''; // Reset sequence
+		} else if (keySequence === hideWord) {
+			document.querySelector('nav').classList.add('hidden');
+			keySequence = ''; // Reset sequence
+		}
+	}
+
+	onMount(() => {
+		document.addEventListener('keydown', handleKeydown);
+	});
 </script>
 
-<nav class="sticky top-0 bg-slate-800 shadow-md z-50 drop-shadow-lg">
+<nav class="sticky top-0 bg-slate-800 shadow-md z-50 drop-shadow-lg hidden">
 	<div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
 		<a
 			href="/"
