@@ -90,10 +90,12 @@
 	>
 		<div>
 			<h2
-				class="relative flex flex-wrap text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
+				class="relative text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
 			>
-				<span class="bg-gradient">Crafting Websites</span><br />
-				<span class="bg-gradient">with Character</span>
+				<span class="bg-gradient">Crafting </span><wbr />
+				<span class="bg-gradient">Websites </span><wbr />
+				<span class="bg-gradient">with </span><wbr />
+				<span class="bg-gradient">Character</span>
 			</h2>
 			<p class="text-blue-900 text-center md:text-left">
 				Drawing from my experience with London's top agencies, I've
@@ -106,10 +108,12 @@
 		</div>
 		<div>
 			<h2
-				class="relative flex flex-wrap text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
+				class="relative text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
 			>
-				<span class="bg-gradient">Streamlining Operations</span><br />
-				<span class="bg-gradient">with Automation</span>
+				<span class="bg-gradient">Streamlining </span><wbr />
+				<span class="bg-gradient">Operations </span><wbr />
+				<span class="bg-gradient">with </span><wbr />
+				<span class="bg-gradient">Automation</span>
 			</h2>
 			<p class="text-blue-900 text-center md:text-left">
 				As a Computer Programmer Analyst, I specialize in simplifying
@@ -120,10 +124,12 @@
 		</div>
 		<div>
 			<h2
-				class="relative flex flex-wrap text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
+				class="relative text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
 			>
-				<span class="bg-gradient">Personalized Consultation</span><br />
-				<span class="bg-gradient">for Your Journey</span>
+				<span class="bg-gradient">Personalized </span><wbr />
+				<span class="bg-gradient">Consultation </span><wbr />
+				<span class="bg-gradient">for your </span><wbr />
+				<span class="bg-gradient">Journey</span>
 			</h2>
 			<p class="text-blue-900 text-center md:text-left">
 				Embarking on your online journey can feel overwhelming. That's
