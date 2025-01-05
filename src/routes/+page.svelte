@@ -108,7 +108,7 @@
 			<h2
 				class="relative flex flex-wrap text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
 			>
-				<span class="bg-gradient">Streamlining Operations</span>
+				<span class="bg-gradient">Streamlining Operations</span><br />
 				<span class="bg-gradient">with Automation</span>
 			</h2>
 			<p class="text-blue-900 text-center md:text-left">
@@ -122,7 +122,7 @@
 			<h2
 				class="relative flex flex-wrap text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
 			>
-				<span class="bg-gradient">Personalized Consultation</span>
+				<span class="bg-gradient">Personalized Consultation</span><br />
 				<span class="bg-gradient">for Your Journey</span>
 			</h2>
 			<p class="text-blue-900 text-center md:text-left">
