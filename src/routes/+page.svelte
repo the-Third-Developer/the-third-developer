@@ -90,7 +90,7 @@
 	>
 		<div>
 			<h2
-				class="relative text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
+				class="relative text-center mx-auto md:mx-0 md:text-left text-5xl w-fit font-cursive font-bold text-blue-800 mb-2"
 			>
 				<span class="bg-gradient">Crafting </span><wbr />
 				<span class="bg-gradient">Websites </span><wbr />
@@ -108,7 +108,7 @@
 		</div>
 		<div>
 			<h2
-				class="relative text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
+				class="relative text-center mx-auto md:mx-0 md:text-left text-5xl w-fit font-cursive font-bold text-blue-800 mb-2"
 			>
 				<span class="bg-gradient">Streamlining </span><wbr />
 				<span class="bg-gradient">Operations </span><wbr />
@@ -124,7 +124,7 @@
 		</div>
 		<div>
 			<h2
-				class="relative text-center mx-auto md:mx-0 md:text-left text-3xl w-fit font-header font-bold text-blue-800 mb-2"
+				class="relative text-center mx-auto md:mx-0 md:text-left text-5xl w-fit font-cursive font-bold text-blue-800 mb-2"
 			>
 				<span class="bg-gradient">Personalized </span><wbr />
 				<span class="bg-gradient">Consultation </span><wbr />
