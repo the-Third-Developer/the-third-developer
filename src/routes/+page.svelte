@@ -178,9 +178,9 @@
 					Ready to elevate your online presence?<br />Shoot me an
 					email at
 					<a
-						href="mailto:branslaa@gmail.com"
+						href="mailto:iam@thethird.dev"
 						class="text-blue-900 text-center font-bold text-lg hover:border-b-4 hover:border-yellow-500"
-						>branslaa@gmail.com</a
+						>iam@thethird.dev</a
 					>. I can't wait to hear from you.
 				</p>
 			</div>
