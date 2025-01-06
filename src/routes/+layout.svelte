@@ -5,7 +5,7 @@
 	const navItems = [
 		{ href: '/', label: 'Home' },
 		{ href: '/history-map', label: 'Historical Map' },
-		{ href: '/pokemon-calculations', label: 'Pokemon Calc' },
+		{ href: '/poke-math', label: 'Pokemon Math' },
 	];
 
 	let showNav = false;
