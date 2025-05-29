@@ -127,10 +127,23 @@
 		const worldX = (mouseX - offsetX) / zoom;
 		const worldY = (mouseY - offsetY) / zoom;
 
-		zoom *= scale;
+		let newZoom = zoom * scale;
 
-		offsetX = mouseX - worldX * zoom;
-		offsetY = mouseY - worldY * zoom;
+		// If zooming out and would cross 1.0, snap to 1.0
+		if (zoom > 1.0 && newZoom < 1.0) {
+			newZoom = 1.0;
+		}
+
+		if (newZoom >= 1.0) {
+			zoom = newZoom;
+			if (zoom === 1.0) {
+				offsetX = 0;
+				offsetY = 0;
+			} else {
+				offsetX = mouseX - worldX * zoom;
+				offsetY = mouseY - worldY * zoom;
+			}
+		}
 
 		draw();
 	}
@@ -151,8 +164,26 @@
 			hasDragged = true;
 		}
 
-		offsetX += dx;
-		offsetY += dy;
+		const gridWidth = cols * cellSize * zoom;
+		const gridHeight = rows * cellSize * zoom;
+		const canvasWidth = canvas.width;
+		const canvasHeight = canvas.height;
+
+		let minOffsetX = 0;
+		let maxOffsetX = 0;
+		let minOffsetY = 0;
+		let maxOffsetY = 0;
+
+		if (gridWidth > canvasWidth) {
+			minOffsetX = canvasWidth - gridWidth;
+		}
+		if (gridHeight > canvasHeight) {
+			minOffsetY = canvasHeight - gridHeight;
+		}
+
+		offsetX = Math.min(maxOffsetX, Math.max(minOffsetX, offsetX + dx));
+		offsetY = Math.min(maxOffsetY, Math.max(minOffsetY, offsetY + dy));
+
 		lastMouseX = event.clientX;
 		lastMouseY = event.clientY;
 		draw();

@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="canonical" href="https://thethird.dev/" />
 
-		<!-- Open Graph Metadata -->
-		<meta property="og:title" content="Brandon Slaa – The Third Developer" />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://thethird.dev" />
-		<meta property="og:image" content="https://thethird.dev/og-image-final.png" />
-		<meta property="og:description" content="Brandon Slaa is the Third Developer – bringing the 'why' to web development and automation. With experience in London's top agencies, I craft websites with character, streamline operations with automation, and provide personalized consultations to help businesses grow. Let's build something that truly fits your needs." />
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="%sveltekit.assets%/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="%sveltekit.assets%/favicon.svg" />
+	<link rel="shortcut icon" href="%sveltekit.assets%/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="%sveltekit.assets%/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="the Third Developer" />
+	<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Licorice&display=swap"
-			rel="stylesheet">
-		
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-4P4MXGCQGH"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() { dataLayer.push(arguments); }
-			gtag('js', new Date());
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="canonical" href="https://thethird.dev/" />
 
-			gtag('config', 'G-4P4MXGCQGH');
-		</script>
+	<!-- Open Graph Metadata -->
+	<meta property="og:title" content="Brandon Slaa - The Third Developer" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://thethird.dev" />
+	<meta property="og:image" content="https://thethird.dev/favicon.svg" />
+	<meta property="og:description" content="Brandon Slaa is the Third Developer - bringing the 'why' to web development and automation. With experience in London's top agencies, I craft websites with character, streamline operations with automation, and provide personalized consultations to help businesses grow. Let's build something that truly fits your needs." />
 
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-			crossorigin="" />
-		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-			crossorigin=""></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Licorice&display=swap" rel="stylesheet">
 
-		%sveltekit.head%
-	</head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4P4MXGCQGH"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+		gtag('config', 'G-4P4MXGCQGH');
+	</script>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+	%sveltekit.head%
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">%sveltekit.body%</div>
+</body>
 
 </html>
