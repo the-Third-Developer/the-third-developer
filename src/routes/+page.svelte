@@ -6,27 +6,7 @@
 	import Contact from '$lib/components/Contact.svelte';
 	import { onMount } from 'svelte';
 	import { scrollFadeIn } from '$lib/actions/scrollFadeIn.js';
-	let mouse = { x: null, y: null };
 	let magnetLinesContainer;
-
-	function handleSectionPointerMove(e) {
-		if (!magnetLinesContainer) return;
-		const rect = magnetLinesContainer.getBoundingClientRect();
-		mouse = {
-			x: e.clientX - rect.left,
-			y: e.clientY - rect.top,
-		};
-	}
-	function handleSectionPointerLeave() {
-		mouse = { x: null, y: null };
-	}
-
-	// Update grid size on resize
-	onMount(() => {
-		updateGridSize();
-		window.addEventListener('resize', updateGridSize);
-		return () => window.removeEventListener('resize', updateGridSize);
-	});
 
 	onMount(async () => {
 		if (typeof window !== 'undefined') {
@@ -59,11 +39,7 @@
 	});
 </script>
 
-<div
-	class="relative pt-16 overflow-hidden bg-ink-500"
-	on:pointermove={handleSectionPointerMove}
-	on:pointerleave={handleSectionPointerLeave}
->
+<div class="relative pt-16 overflow-hidden bg-ink-500">
 	<section
 		id="hero"
 		class="container mx-auto flex justify-center items-center relative z-10 pb-16 md:pb-48"
@@ -101,16 +77,12 @@
 	<section id="portfolio" class="relative text-offwhite-500 px-6 py-24">
 		<Projects />
 	</section>
-	<div
-		class="relative flex items-center justify-center overflow-hidden"
-		on:pointermove={handleSectionPointerMove}
-		on:pointerleave={handleSectionPointerLeave}
-	>
+	<div class="relative flex items-center justify-center overflow-hidden">
 		<div
 			bind:this={magnetLinesContainer}
 			class="absolute inset-0 w-full h-full"
 		>
-			<MagnetLines {mouse} />
+			<MagnetLines />
 		</div>
 		<section class="container mx-auto py-16 relative text-center z-10">
 			<Contact />

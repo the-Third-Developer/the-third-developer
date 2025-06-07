@@ -61,7 +61,7 @@
 				/>
 				<label
 					for="contact-name"
-					class="absolute left-3 top-3 text-blue-500 bg-ink-500 rounded-md px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-blue-500 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-blue-500 peer-focus:bg-ink-500 peer-focus:px-1 peer-[&:not(:placeholder-shown)]:-top-4 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-yellow-500 peer-[&:not(:placeholder-shown)]:bg-ink-500 peer-[&:not(:placeholder-shown)]:px-1"
+					class="absolute left-3 top-3 text-blue-500 bg-ink-500 rounded-md px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-blue-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-500 peer-focus:bg-ink-500 peer-focus:px-1 peer-[&:not(:placeholder-shown)]:-top-4 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-yellow-500 peer-[&:not(:placeholder-shown)]:bg-ink-500 peer-[&:not(:placeholder-shown)]:px-1"
 				>
 					Name
 				</label>
@@ -78,7 +78,7 @@
 				/>
 				<label
 					for="contact-email"
-					class="absolute left-3 top-3 text-blue-500 bg-ink-500 px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-blue-500 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-blue-500 peer-focus:bg-ink-500 peer-focus:px-1 peer-[&:not(:placeholder-shown)]:-top-4 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-yellow-500 peer-[&:not(:placeholder-shown)]:bg-ink-500 peer-[&:not(:placeholder-shown)]:px-1"
+					class="absolute left-3 top-3 text-blue-500 bg-ink-500 px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-blue-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-500 peer-focus:bg-ink-500 peer-focus:px-1 peer-[&:not(:placeholder-shown)]:-top-4 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-yellow-500 peer-[&:not(:placeholder-shown)]:bg-ink-500 peer-[&:not(:placeholder-shown)]:px-1"
 				>
 					Email
 				</label>
@@ -95,7 +95,7 @@
 				></textarea>
 				<label
 					for="contact-message"
-					class="absolute left-3 top-3 text-blue-500 bg-ink-500 px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-blue-500 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-blue-500 peer-focus:bg-ink-500 peer-focus:px-1 peer-[&:not(:placeholder-shown)]:-top-4 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-yellow-500 peer-[&:not(:placeholder-shown)]:bg-ink-500 peer-[&:not(:placeholder-shown)]:px-1"
+					class="absolute left-3 top-3 text-blue-500 bg-ink-500 px-1 transition-all duration-200 pointer-events-none peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-blue-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-blue-500 peer-focus:bg-ink-500 peer-focus:px-1 peer-[&:not(:placeholder-shown)]:-top-4 peer-[&:not(:placeholder-shown)]:text-xs peer-[&:not(:placeholder-shown)]:text-yellow-500 peer-[&:not(:placeholder-shown)]:bg-ink-500 peer-[&:not(:placeholder-shown)]:px-1"
 				>
 					Message
 				</label>

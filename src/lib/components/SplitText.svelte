@@ -40,8 +40,8 @@
 		const absoluteLines = splitType === 'lines';
 		if (absoluteLines) element.style.position = 'relative';
 
-		// Set initial state
-		gsap.set(element, { opacity: 0 });
+		// Set initial state with reduced opacity
+		gsap.set(element, { opacity: 0.1 });
 
 		// Create a temporary div to parse HTML
 		const tempDiv = document.createElement('div');
@@ -105,7 +105,7 @@
 		tl.to(element, { opacity: 1, duration: 0.001 });
 		tl.to(targets, {
 			...to,
-			duration,
+			duration: duration * 0.8, // Slightly faster animation
 			ease,
 			stagger: delay / 1000,
 			force3D: true,
@@ -120,10 +120,10 @@
 	});
 </script>
 
-<p
+<div
 	bind:this={element}
 	class="split-parent overflow-hidden inline-block whitespace-normal {className}"
 	style="text-align: {textAlign}; word-wrap: break-word; opacity: 0;"
 >
 	{@html text}
-</p>
+</div>

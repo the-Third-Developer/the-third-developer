@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 
-	export let rows = 16;
-	export let columns = 30;
+	export let rows = 12;
+	export let columns = 24;
 	export let lineColor = '#40C4FF';
 	export let baseAngle = 0;
 
@@ -11,12 +11,13 @@
 		height = 0;
 	let mouse = { x: 0, y: 0 };
 	let lineRefs = Array(rows * columns);
+	let prevAngles = Array(rows * columns).fill(baseAngle);
+	let highlightStates = Array(rows * columns).fill(false);
 	$: if (lineRefs.length !== rows * columns) lineRefs = Array(rows * columns);
-
-	// Helper to bind line refs in each block
-	function getLineRef(i) {
-		return el => (lineRefs[i] = el);
-	}
+	$: if (prevAngles.length !== rows * columns)
+		prevAngles = Array(rows * columns).fill(baseAngle);
+	$: if (highlightStates.length !== rows * columns)
+		highlightStates = Array(rows * columns).fill(false);
 
 	// Update container size on mount and resize
 	function updateSize() {
@@ -30,7 +31,7 @@
 	// Listen to window pointermove and store mouse position in screen coordinates
 	function handlePointerMove(e) {
 		mouse = { x: e.clientX, y: e.clientY };
-		updateAngles();
+		requestAnimationFrame(updateAngles); // Use requestAnimationFrame for smoother updates
 	}
 
 	// Calculate and set the angle for each line
@@ -43,10 +44,32 @@
 			const b = mouse.x - centerX;
 			const a = mouse.y - centerY;
 			const c = Math.sqrt(a * a + b * b) || 1;
-			const r =
+			let r =
 				((Math.acos(b / c) * 180) / Math.PI) *
 				(mouse.y > centerY ? 1 : -1);
+			r = r + 90;
+			// Shortest-path angle interpolation
+			let prev = prevAngles[i] || 0;
+			let delta = r - prev;
+			if (delta > 180) r -= 360;
+			if (delta < -180) r += 360;
+			prevAngles[i] = r;
 			line.style.setProperty('--rotate', `${r}deg`);
+
+			// Highlight logic
+			const mouseOver =
+				mouse.x >= rect.left &&
+				mouse.x <= rect.right &&
+				mouse.y >= rect.top &&
+				mouse.y <= rect.bottom;
+			if (mouseOver) {
+				highlightStates[i] = true;
+				// Reset highlight after 2 seconds
+				clearTimeout(line._highlightTimeout);
+				line._highlightTimeout = setTimeout(() => {
+					highlightStates[i] = false;
+				}, 2000);
+			}
 		});
 	}
 
@@ -83,29 +106,30 @@
 	bind:this={container}
 	class="magnet-bg-grid"
 	style="
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
-  "
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		inset: 0;
+		will-change: transform;
+	"
 >
 	{#each lines as { cx, cy }, i}
 		<div
 			bind:this={lineRefs[i]}
 			class="magnet-bg-line"
 			style="
-        width: {lineLength}px;
-        height: {lineThickness}px;
-        background: {lineColor};
-        left: calc({cx}px - {lineLength / 2}px);
-        top: calc({cy}px - {lineThickness / 2}px);
-        transform: rotate(var(--rotate, {baseAngle}deg));
-        border-radius: 1px;
-        opacity: 0.2;
-        position: absolute;
-        transition: transform 0.18s cubic-bezier(0.4, 2, 0.6, 1);
-        will-change: transform;
-      "
+				width: {lineLength}px;
+				height: {lineThickness}px;
+				background: {highlightStates[i] ? '#FFB401' : lineColor};
+				left: calc({cx}px - {lineLength / 2}px);
+				top: calc({cy}px - {lineThickness / 2}px);
+				transform: rotate(var(--rotate, {baseAngle}deg));
+				border-radius: 1px;
+				opacity: 0.2;
+				position: absolute;
+				transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1), background 0.2s ease-out, opacity 0.2s ease-out;
+				will-change: transform, background, opacity;
+			"
 		/>
 	{/each}
 </div>

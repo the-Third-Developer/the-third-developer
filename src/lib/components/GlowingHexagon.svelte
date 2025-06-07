@@ -25,7 +25,7 @@
 	// Dot sizes
 	const maskDotRadius = 120;
 	const yellowDotRadius = 6;
-	const animationDuration = 20; // seconds
+	const animationDuration = 15; // Reduced from 20 to 15 seconds
 
 	// Tilt effect variables
 	let container;
@@ -42,8 +42,8 @@
 	};
 
 	// Tilt parameters
-	const rotateAmplitude = 14;
-	const scaleOnHover = 1.1;
+	const rotateAmplitude = 10; // Reduced from 14 to 10
+	const scaleOnHover = 1.05; // Reduced from 1.1 to 1.05
 
 	function handleMouseMove(e) {
 		if (!container || !isHovered) return;
@@ -85,7 +85,7 @@
 
 <div
 	class="hexagon-logo-container"
-	style="width: 100%; height: 100%; perspective: 800px;"
+	style="width: 100%; height: 100%; perspective: 800px; will-change: transform;"
 	bind:this={container}
 >
 	<div
@@ -94,6 +94,7 @@
 			transform-style: preserve-3d;
 			transform: rotateX({rotateX}deg) rotateY({rotateY}deg) scale({scale});
 			transition: transform 0.1s ease-out;
+			will-change: transform;
 		"
 	>
 		<svg
