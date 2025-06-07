@@ -9,6 +9,7 @@
 	import elemex from '$lib/images/elemex.webp';
 	import cowbell from '$lib/images/cowbell.webp';
 	import { onMount } from 'svelte';
+	import { scrollFadeIn } from '$lib/actions/scrollFadeIn.js';
 
 	let projects = [
 		{
@@ -163,7 +164,7 @@
 				/>
 				<SplitText
 					text="I am <span class='text-yellow-500'>the Third Developer</span>, <br/>finding answers that best fit your needs."
-					className="text-offwhite-500 text-4xl font-emphasis block"
+					className="text-offwhite-500 text-4xl font-emphasis block leading-loose"
 					splitType="words"
 					delay={100}
 					sequence={3}
@@ -171,7 +172,10 @@
 			</div>
 		</div>
 	</section>
-	<section class="container mx-auto max-w-2xl">
+	<section
+		class="container mx-auto max-w-2xl"
+		use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}
+	>
 		<h2 class="text-offwhite-500 text-justify text-xl font-emphasis">
 			In a world obsessed with '<span class="text-blue-500">what</span>'
 			and '<span class="text-blue-500">how</span>',
