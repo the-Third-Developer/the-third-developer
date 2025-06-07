@@ -1,5 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
 	import '../app.css';
 	import logo from '$lib/images/TTD-circuitry-neruons-logo.png';
 
@@ -9,11 +8,11 @@
 	];
 </script>
 
-<nav class="sticky top-0 bg-slate-800 shadow-md z-50 drop-shadow-lg">
-	<div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+<nav class="sticky top-0 bg-ink-500 shadow-md z-50 drop-shadow-lg">
+	<div class="mx-auto px-8 py-4 flex justify-between items-center">
 		<a
 			href="/"
-			class="text-white text-xl font-bold hover:text-blue-300 transition-colors"
+			class="text-white text-xl font-bold hover:text-blue-500 transition-colors"
 			title="the Third Developer"
 		>
 			<img src={logo} alt="the Third Developer" class="w-8 h-8" />
@@ -23,7 +22,7 @@
 				<li>
 					<a
 						href={item.href}
-						class="text-gray-200 px-4 py-2 rounded-md hover:bg-slate-700 transition-colors"
+						class="text-offwhite-500 px-4 py-2 rounded-md hover:bg-blue-500 transition-colors"
 					>
 						{item.label}
 					</a>

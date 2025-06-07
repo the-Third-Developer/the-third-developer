@@ -26,7 +26,9 @@
 	"dependencies": {
 		"chart.js": "^4.4.7",
 		"d3": "^7.9.0",
+		"gsap": "^3.13.0",
 		"pokedex-promise-v2": "^4.2.0",
+		"resend": "^4.5.2",
 		"topojson-client": "^3.1.0"
 	}
 }
