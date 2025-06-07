@@ -1,29 +1,33 @@
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
 export function scrollFadeIn(
 	node,
-	{ threshold = 1, y = 40, duration = 600 } = {},
+	{ y = 40, duration = 0.6, ease = 'power3.out' } = {},
 ) {
-	let observer;
+	let anim;
 
-	node.style.opacity = 0;
-	node.style.transform = `translateY(${y}px)`;
+	gsap.set(node, { opacity: 0, y });
 
-	const handleIntersect = entries => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				node.style.transition = `opacity ${duration}ms cubic-bezier(.4,0,.2,1), transform ${duration}ms cubic-bezier(.4,0,.2,1)`;
-				node.style.opacity = 1;
-				node.style.transform = 'translateY(0)';
-				observer.disconnect();
-			}
-		});
-	};
-
-	observer = new IntersectionObserver(handleIntersect, { threshold });
-	observer.observe(node);
+	anim = gsap.to(node, {
+		opacity: 1,
+		y: 0,
+		duration,
+		ease,
+		scrollTrigger: {
+			trigger: node,
+			start: 'top 80%',
+			end: 'top 60%',
+			scrub: true,
+			once: false,
+		},
+	});
 
 	return {
 		destroy() {
-			observer && observer.disconnect();
+			if (anim) anim.scrollTrigger && anim.scrollTrigger.kill();
+			if (anim) anim.kill();
 		},
 	};
 }

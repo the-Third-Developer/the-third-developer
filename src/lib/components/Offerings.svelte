@@ -9,7 +9,7 @@
 			image: website,
 			alt: 'Websites Icon',
 			title: 'Crafting Websites with Character',
-			desc: 'Accessible, on-brand experiences tailored to your needs—from basic email automation to complex procedures.',
+			desc: 'Accessible, on-brand experiences tailored to your needs—from basic websites to complex web applications including e-commerce, booking systems, and more.',
 		},
 		{
 			image: swirl,
@@ -26,22 +26,20 @@
 	];
 </script>
 
-<section class="container mx-auto pt-16 pb-8 max-w-5xl">
-	<div class="grid md:grid-cols-3 gap-8">
-		{#each offerings as offering}
-			<SpotlightCard
-				className="rounded-xl p-4 border-2 border-blue-500/25 cursor-pointer group"
-			>
-				<img
-					src={offering.image}
-					alt={offering.alt}
-					class="w-100 mx-auto mb-6 p-4 max-h-48"
-				/>
-				<h3 class="text-3xl font-header text-white mb-4">
-					{offering.title}
-				</h3>
-				<p class="text-offwhite-500">{offering.desc}</p>
-			</SpotlightCard>
-		{/each}
-	</div>
-</section>
+<div class="grid md:grid-cols-3 gap-8">
+	{#each offerings as offering}
+		<SpotlightCard
+			className="rounded-xl p-4 border-2 border-blue-500/25 cursor-pointer group"
+		>
+			<img
+				src={offering.image}
+				alt={offering.alt}
+				class="mx-auto mb-6 p-4 h-48"
+			/>
+			<h3 class="text-3xl font-header text-white mb-4">
+				{offering.title}
+			</h3>
+			<p class="text-offwhite-500">{offering.desc}</p>
+		</SpotlightCard>
+	{/each}
+</div>

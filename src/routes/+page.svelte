@@ -132,14 +132,14 @@
 			>
 				<SplitText
 					text="The first developer focuses on the problem."
-					className="text-offwhite-500 text-2xl font-emphasis mb-8 block"
+					className="text-offwhite-500 text-2xl font-emphasis mb-8 block drop-shadow-[2px_4px_6px_rgba(0,0,0,1)]"
 					splitType="words"
 					delay={150}
 					sequence={0}
 				/>
 				<SplitText
 					text="The second developer focuses on the solution."
-					className="text-offwhite-500 text-2xl font-emphasis mb-8 block"
+					className="text-offwhite-500 text-2xl font-emphasis mb-8 block drop-shadow-[2px_4px_6px_rgba(0,0,0,1)]"
 					splitType="words"
 					delay={150}
 					sequence={1}
@@ -148,7 +148,7 @@
 
 			<!-- Row 1-2, Col 2: Hexagon image (spans both rows) -->
 			<div
-				class="col-start-1 md:col-start-2 row-start-2 md:row-start-1 row-span-2 md:row-span-2 col-span-2 md:col-span-1 flex justify-center items-center relative opacity-90"
+				class="col-start-1 md:col-start-2 row-start-3 md:row-start-1 row-span-1 md:row-span-2 col-span-2 md:col-span-1 flex justify-center items-center relative opacity-90"
 			>
 				<GlowingHexagon />
 			</div>
@@ -157,14 +157,14 @@
 			<div class="col-start-1 row-start-2 col-span-2 z-10 self-start">
 				<SplitText
 					text="I look through the surface to peer into the true meaning."
-					className="text-offwhite-500 text-3xl font-emphasis mb-8 block"
+					className="text-white text-3xl font-emphasis mb-8 block drop-shadow-[2px_4px_6px_rgba(0,0,0,1)]"
 					splitType="words"
 					delay={100}
 					sequence={2}
 				/>
 				<SplitText
 					text="I am <span class='text-yellow-500'>the Third Developer</span>, <br/>finding answers that best fit your needs."
-					className="text-offwhite-500 text-4xl font-emphasis block leading-loose"
+					className="text-white text-3xl md:text-4xl font-emphasis block leading-loose drop-shadow-[2px_4px_6px_rgba(0,0,0,1)]"
 					splitType="words"
 					delay={100}
 					sequence={3}
@@ -176,11 +176,11 @@
 		class="container mx-auto max-w-2xl"
 		use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}
 	>
-		<h2 class="text-offwhite-500 text-justify text-xl font-emphasis">
+		<h2 class="text-offwhite-500 text-left md:text-justify text-2xl font-emphasis">
 			In a world obsessed with '<span class="text-blue-500">what</span>'
 			and '<span class="text-blue-500">how</span>',
 		</h2>
-		<p class="text-offwhite-500 mt-4 text-justify">
+		<p class="text-offwhite-500 mt-4 text-left md:text-justify">
 			In a world obsessed with "what" and "how", I bring the "why". Having
 			honed my craft working with London's leading agencies, I don't just
 			build websites and automate tasks - <span class="text-blue-300"
@@ -192,7 +192,9 @@
 			how I can become your secret weapon.
 		</p>
 	</section>
-	<Offerings />
+	<section class="container mx-auto pt-16 pb-8 max-w-5xl" use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}>
+		<Offerings />
+	</section>
 	<section
 		id="portfolio"
 		class="relative bg-ink-500 text-offwhite-500 px-6 py-24"
@@ -319,5 +321,10 @@
 		class="container mx-auto pt-16 pb-8 max-w-5xl text-center text-offwhite-500"
 	>
 		<p>Based out of St Thomas, Ontario.</p>
+		<a
+			href="mailto:iam@thethird.dev"
+			class="text-yellow-500 mt-4 text-emphasis hover:underline"
+			>iam@thethird.dev</a
+		>
 	</section>
 </div>
