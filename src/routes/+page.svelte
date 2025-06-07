@@ -176,7 +176,9 @@
 		class="container mx-auto max-w-2xl"
 		use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}
 	>
-		<h2 class="text-offwhite-500 text-left md:text-justify text-2xl font-emphasis">
+		<h2
+			class="text-offwhite-500 text-left md:text-justify text-2xl font-emphasis"
+		>
 			In a world obsessed with '<span class="text-blue-500">what</span>'
 			and '<span class="text-blue-500">how</span>',
 		</h2>
@@ -192,13 +194,13 @@
 			how I can become your secret weapon.
 		</p>
 	</section>
-	<section class="container mx-auto pt-16 pb-8 max-w-5xl" use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}>
+	<section
+		class="container mx-auto pt-16 pb-8 max-w-5xl"
+		use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}
+	>
 		<Offerings />
 	</section>
-	<section
-		id="portfolio"
-		class="relative text-offwhite-500 px-6 py-24"
-	>
+	<section id="portfolio" class="relative text-offwhite-500 px-6 py-24">
 		<div
 			class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10"
 			id="portfolio-grid"
@@ -208,7 +210,12 @@
 					href={project.url}
 					target="_blank"
 					class="relative group project-tile rounded-xl overflow-hidden p-6 bg-opacity-10 backdrop-blur-md transition-all duration-300"
-					use:scrollFadeIn={{ y: 24, start: 'top 90%', end: 'top 70%', scrub: 0.3 }}
+					use:scrollFadeIn={{
+						y: 24,
+						start: 'top 90%',
+						end: 'top 70%',
+						scrub: 0.3,
+					}}
 				>
 					<!-- Circuit Dots -->
 					<div
