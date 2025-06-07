@@ -124,6 +124,7 @@
 	bind:this={element}
 	class="split-parent overflow-hidden inline-block whitespace-normal {className}"
 	style="text-align: {textAlign}; word-wrap: break-word; opacity: 0;"
+	aria-hidden="true"
 >
 	{@html text}
 </div>
