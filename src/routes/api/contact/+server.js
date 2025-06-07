@@ -1,10 +1,18 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
 export async function POST({ request }) {
 	const data = await request.json();
 	const { name, email, message } = data;
+
+	// Only access the env var here, at runtime
+	const apiKey = import.meta.env.RESEND_API_KEY;
+	if (!apiKey) {
+		return new Response(
+			JSON.stringify({ success: false, error: 'Missing RESEND_API_KEY' }),
+			{ status: 500 },
+		);
+	}
+	const resend = new Resend(apiKey);
 
 	try {
 		await resend.emails.send({

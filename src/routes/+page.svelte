@@ -197,7 +197,7 @@
 	</section>
 	<section
 		id="portfolio"
-		class="relative bg-ink-500 text-offwhite-500 px-6 py-24"
+		class="relative text-offwhite-500 px-6 py-24"
 	>
 		<div
 			class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10"
@@ -208,6 +208,7 @@
 					href={project.url}
 					target="_blank"
 					class="relative group project-tile rounded-xl overflow-hidden p-6 bg-opacity-10 backdrop-blur-md transition-all duration-300"
+					use:scrollFadeIn={{ y: 24, start: 'top 90%', end: 'top 70%', scrub: 0.3 }}
 				>
 					<!-- Circuit Dots -->
 					<div
