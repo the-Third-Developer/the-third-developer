@@ -36,7 +36,7 @@
 				alt={offering.alt}
 				class="mx-auto mb-6 p-4 h-48"
 			/>
-			<h3 class="text-3xl font-header text-white mb-4">
+			<h3 class="text-3xl font-header text-white mb-4 leading-normal">
 				{offering.title}
 			</h3>
 			<p class="text-offwhite-500">{offering.desc}</p>

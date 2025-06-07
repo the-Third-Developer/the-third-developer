@@ -92,6 +92,11 @@ export default {
 					950: '#0C0F12',
 				},
 			},
+			fontSize: {
+				'2xl': ['1.5rem', { lineHeight: '2' }],
+				'3xl': ['1.875rem', { lineHeight: '2' }],
+				'4xl': ['2.25rem', { lineHeight: '2' }],
+			},
 		},
 	},
 	plugins: [],
