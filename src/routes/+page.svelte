@@ -74,7 +74,10 @@
 	>
 		<Offerings />
 	</section>
-	<section id="portfolio" class="relative text-offwhite-500 px-6 py-24">
+	<section
+		id="portfolio"
+		class="relative text-offwhite-500 px-6 py-24 max-w-7xl mx-auto"
+	>
 		<Projects />
 	</section>
 	<div class="relative flex items-center justify-center overflow-hidden">
