@@ -38,7 +38,7 @@
 	on:blur={handleBlur}
 	on:mouseenter={handleMouseEnter}
 	on:mouseleave={handleMouseLeave}
-	class={`relative rounded-3xl border border-blue-500 bg-blue-500/050 overflow-hidden p-8 ${className}`}
+	class={`relative rounded-3xl bg-blue-500/050 overflow-hidden p-8 ${className}`}
 	tabindex="-1"
 	role="region"
 >

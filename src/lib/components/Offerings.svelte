@@ -28,13 +28,11 @@
 
 <div class="grid md:grid-cols-3 gap-8">
 	{#each offerings as offering}
-		<SpotlightCard
-			className="rounded-xl p-4 border-2 border-blue-500/25 cursor-pointer group"
-		>
+		<SpotlightCard className="rounded-xl p-4  cursor-pointer group">
 			<img
 				src={offering.image}
 				alt={offering.alt}
-				class="mx-auto mb-6 p-4 h-48"
+				class="mx-auto mb-6 p-4 h-48 cursor-auto opacity-50"
 			/>
 			<h3 class="text-3xl font-header text-white mb-4 leading-normal">
 				{offering.title}

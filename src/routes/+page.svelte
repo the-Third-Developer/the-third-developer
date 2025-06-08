@@ -42,12 +42,12 @@
 <div class="relative pt-16 overflow-hidden bg-ink-500">
 	<section
 		id="hero"
-		class="container mx-auto flex justify-center items-center relative z-10 pb-16 md:pb-48"
+		class="container mx-auto flex justify-center items-center relative z-10 pb-16 md:pb-48 px-8"
 	>
 		<Hero />
 	</section>
 	<section
-		class="container mx-auto max-w-2xl"
+		class="container mx-auto max-w-2xl px-8"
 		use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}
 	>
 		<h2
@@ -69,7 +69,7 @@
 		</p>
 	</section>
 	<section
-		class="container mx-auto pt-16 pb-8 max-w-5xl"
+		class="container mx-auto pt-16 px-8 pb-8 max-w-5xl"
 		use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}
 	>
 		<Offerings />
