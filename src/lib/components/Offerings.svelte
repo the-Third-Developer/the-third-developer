@@ -28,7 +28,7 @@
 
 <div class="grid md:grid-cols-3 gap-8">
 	{#each offerings as offering}
-		<SpotlightCard className="rounded-xl p-4  cursor-pointer group">
+		<SpotlightCard className="rounded-xl p-4 group">
 			<img
 				src={offering.image}
 				alt={offering.alt}

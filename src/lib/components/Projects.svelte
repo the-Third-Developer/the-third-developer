@@ -1,7 +1,7 @@
 <script>
 	import { scrollFadeIn } from '$lib/actions/scrollFadeIn.js';
 	import { onMount, tick } from 'svelte';
-	import Countup from 'svelte-countup';
+	import CountUp from '$lib/components/CountUp.svelte';
 	import dbinex from '$lib/images/dbinex.webp';
 	import health from '$lib/images/health-sciences.webp';
 	import cgm from '$lib/images/cgm.webp';
@@ -246,7 +246,7 @@
 </div>
 
 <p class="text-center mt-16 text-2xl text-yellow-500 font-header">
-	+ over <Countup
+	+ over <CountUp
 		initial={1}
 		value={100}
 		duration={5000}
