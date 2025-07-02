@@ -6,6 +6,7 @@
 	import Contact from '$lib/components/Contact.svelte';
 	import { onMount } from 'svelte';
 	import { scrollFadeIn } from '$lib/actions/scrollFadeIn.js';
+	import Reviews from '$lib/components/Reviews.svelte';
 	let magnetLinesContainer;
 
 	onMount(async () => {
@@ -79,6 +80,9 @@
 		class="relative text-offwhite-500 px-6 py-24 max-w-7xl mx-auto"
 	>
 		<Projects />
+	</section>
+	<section class="container mx-auto pt-16 px-8 pb-8 max-w-5xl">
+		<Reviews />
 	</section>
 	<div class="relative flex items-center justify-center overflow-hidden">
 		<div
