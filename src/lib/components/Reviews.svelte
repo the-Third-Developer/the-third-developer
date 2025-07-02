@@ -50,12 +50,12 @@
 	$: hasPrev = currentIndex > 0;
 </script>
 
-<div class="flex flex-col gap-6">
-	<h2 class="text-2xl font-bold text-offwhite-500 text-center">
-		Reviews from Google
-	</h2>
+{#if reviews.length > 0}
+	<div class="flex flex-col gap-6 pb-8">
+		<h2 class="text-2xl font-bold text-offwhite-500 text-center">
+			Reviews from Google
+		</h2>
 
-	{#if reviews.length > 0}
 		<div class="relative">
 			<!-- Navigation Buttons -->
 			{#if hasPrev}
@@ -147,9 +147,5 @@
 				</div>
 			{/if}
 		</div>
-	{:else}
-		<div class="text-center text-gray-400">
-			<p>Loading reviews...</p>
-		</div>
-	{/if}
-</div>
+	</div>
+{/if}
