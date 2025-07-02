@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	const apiKey = 'AIzaSyDRaOEeZKS4pdmp_AMuNxLbvohSy4vnL8E';
+	const apiKey = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 	let itemsPerPage = 3;
 
 	let reviews = [];
@@ -8,7 +8,7 @@
 
 	onMount(async () => {
 		const baseUrl = 'https://places.googleapis.com/v1/places/';
-		const placeId = 'ChIJd6i_9jtfLogRIZudq4Hbppw';
+		const placeId = import.meta.env.VITE_GOOGLE_PLACES_PLACE_ID;
 		const fields = 'reviews';
 		const url = `${baseUrl}${placeId}?fields=${fields}&key=${apiKey}`;
 
