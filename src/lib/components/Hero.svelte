@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 
 	let hexagonContainer;
+	let isLoaded = false;
 
 	onMount(async () => {
 		if (typeof window !== 'undefined') {
@@ -19,12 +20,13 @@
 					ease: 'power3.out',
 				},
 			);
+			isLoaded = true;
 		}
 	});
 </script>
 
 <div
-	class="grid grid-cols-2 grid-rows-[auto_auto] items-center relative w-full"
+	class={`grid grid-cols-2 grid-rows-[auto_auto] items-center relative w-full tracking-[0.05em] ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
 >
 	<!-- Row 1, Col 1: Small text -->
 	<div
