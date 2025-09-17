@@ -44,6 +44,7 @@
 	let ring;
 	let cardElements = [];
 	let state = { index: 0 };
+	let currentRotation = 0; // Track cumulative rotation
 
 	const n = 4; // Fixed to 4 cards for cube
 	const step = 90; // 90 degrees per step for cube
@@ -58,86 +59,108 @@
 
 	function spinTo(index) {
 		state.index = (index + n) % n;
-		const deg = -state.index * step;
+	}
 
-		// Simply rotate the ring container
+	function next() {
+		state.index = (state.index + 1) % n;
+		currentRotation -= step; // Subtract 90 degrees for clockwise rotation
+
 		gsap.to(ring, {
-			rotateY: deg,
+			rotateY: currentRotation,
 			duration: 0.8,
 			ease: 'power2.inOut',
 		});
 	}
 
-	function next() {
-		spinTo(state.index + 1);
+	function prev() {
+		state.index = (state.index - 1 + n) % n;
+		currentRotation += step; // Add 90 degrees for counter-clockwise rotation
+
+		gsap.to(ring, {
+			rotateY: currentRotation,
+			duration: 0.8,
+			ease: 'power2.inOut',
+		});
 	}
 
-	function prev() {
-		spinTo(state.index - 1);
+	function goToIndex(index) {
+		const diff = index - state.index;
+		const steps = diff >= 0 ? diff : diff + n;
+
+		for (let i = 0; i < steps; i++) {
+			setTimeout(() => next(), i * 100);
+		}
 	}
 </script>
 
 <div
-	class="relative w-full min-h-screen grid grid-rows-[auto_1fr_auto] place-items-center overflow-hidden bg-gradient-to-b from-ink-500 via-blue-900 to-ink-500 text-blue-100 px-4 py-8"
-	style="perspective: 1400px; perspective-origin: 50% 40%;"
+	class="bg-gradient-to-b from-ink-500 via-blue-900 to-ink-500 text-blue-100"
 >
-	<div class="flex flex-col items-center">
+	<div class="flex flex-col items-center mb-4">
 		<h2 class="text-white text-2xl font-emphasis mb-2">The Process</h2>
 		<h3 class="text-offwhite-500 text-lg font-emphasis">
 			Plan - Build - Launch
 		</h3>
 	</div>
 	<div
-		class="relative w-full max-w-4xl"
-		style="height: min(40vh, 500px); transform-style: preserve-3d;"
-		bind:this={ring}
+		class="relative w-full grid place-items-center px-4 py-12"
+		style="perspective: 1400px; perspective-origin: 50% 40%;"
 	>
-		{#each cards.slice(0, 4) as card, i}
-			<article
-				class="absolute top-1/2 left-1/2 w-4/5 md:w-full h-full md:max-w-lg cursor-pointer rounded-xl overflow-hidden border border-blue-400/25 shadow-2xl"
-				style="transform-style: preserve-3d; background: linear-gradient(170deg, #0f2b55 0%, #0c2246 60%); box-shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(95,178,255,.06);"
-				bind:this={cardElements[i]}
-			>
-				<div
-					class="absolute inset-0 rounded-xl pointer-events-none"
-					style="box-shadow: inset 0 0 0 2px rgba(95,178,255,.12), inset 0 -80px 120px rgba(0,0,0,.35);"
-				></div>
-				<div
-					class="absolute inset-0 rounded-xl pointer-events-none opacity-35 mix-blend-screen"
-					style="background: linear-gradient(115deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 40%), radial-gradient(120% 120% at -20% -20%, rgba(95,178,255,.30) 0%, rgba(95,178,255,0) 50%); transform: translateZ(1px);"
-				></div>
-				<div
-					class="absolute inset-0 p-4 sm:p-6 md:p-7 grid content-between"
+		<div
+			class="relative w-full max-w-4xl"
+			style="height: min(40vh, 500px); transform-style: preserve-3d;"
+			bind:this={ring}
+		>
+			{#each cards.slice(0, 4) as card, i}
+				<article
+					class="absolute top-1/2 left-1/2 w-4/5 min-h-72 md:w-full h-full md:max-w-lg cursor-pointer rounded-xl overflow-hidden border border-blue-400/25 shadow-2xl"
+					style="transform-style: preserve-3d; background: linear-gradient(170deg, #0f2b55 0%, #0c2246 60%); box-shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(95,178,255,.06);"
+					bind:this={cardElements[i]}
 				>
-					<div>
-						<div
-							class="opacity-70 text-xs sm:text-sm tracking-widest uppercase mb-2"
-						>
-							<span class="text-yellow-500">{card.number}</span> ·
-							{card.eyebrow}
-						</div>
-						<h2
-							class="font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-3"
-						>
-							{card.title}
-						</h2>
-						<p
-							class="opacity-80 text-xs sm:text-sm leading-relaxed"
-						>
-							{card.description}
-						</p>
-					</div>
 					<div
-						class="justify-self-start px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-blue-400/40 bg-blue-500/8 text-blue-200 text-xs"
+						class="absolute inset-0 rounded-xl pointer-events-none"
+						style="box-shadow: inset 0 0 0 2px rgba(95,178,255,.12), inset 0 -80px 120px rgba(0,0,0,.35);"
+					></div>
+					<div
+						class="absolute inset-0 rounded-xl pointer-events-none opacity-35 mix-blend-screen"
+						style="background: linear-gradient(115deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 40%), radial-gradient(120% 120% at -20% -20%, rgba(95,178,255,.30) 0%, rgba(95,178,255,0) 50%); transform: translateZ(1px);"
+					></div>
+					<div
+						class="absolute inset-0 p-4 sm:p-6 md:p-7 grid content-between"
 					>
-						{card.chip}
+						<div>
+							<div
+								class="opacity-70 text-xs sm:text-sm tracking-widest uppercase mb-2"
+							>
+								<span class="text-yellow-500"
+									>{card.number}</span
+								>
+								·
+								{card.eyebrow}
+							</div>
+							<h2
+								class="font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-3"
+							>
+								{card.title}
+							</h2>
+							<p
+								class="opacity-80 text-xs sm:text-sm leading-relaxed"
+							>
+								{card.description}
+							</p>
+						</div>
+						<div
+							class="justify-self-start px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-blue-400/40 bg-blue-500/8 text-blue-200 text-xs"
+						>
+							{card.chip}
+						</div>
 					</div>
-				</div>
-			</article>
-		{/each}
+				</article>
+			{/each}
+		</div>
 	</div>
 	{#if showControls}
-		<div class="grid place-items-center gap-3 mb-4 sm:mb-8">
+		<div class="grid place-items-center gap-3 mt-8">
 			<div
 				class="inline-grid grid-flow-col gap-2 sm:gap-2.5 bg-white/5 border border-white/8 p-1.5 sm:p-2 rounded-full backdrop-blur-sm"
 			>
@@ -157,7 +180,7 @@
 						state.index
 							? 'bg-white'
 							: 'bg-white/25 hover:bg-white/50'}"
-						on:click={() => spinTo(i)}
+						on:click={() => goToIndex(i)}
 						aria-label="Go to card {i + 1}"
 					></button>
 				{/each}
