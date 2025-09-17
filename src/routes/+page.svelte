@@ -8,6 +8,7 @@
 	import { scrollFadeIn } from '$lib/actions/scrollFadeIn.js';
 	import Reviews from '$lib/components/Reviews.svelte';
 	let magnetLinesContainer;
+	import BoxCards from '$lib/components/BoxCards.svelte';
 
 	onMount(async () => {
 		if (typeof window !== 'undefined') {
@@ -74,6 +75,9 @@
 		use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}
 	>
 		<Offerings />
+	</section>
+	<section use:scrollFadeIn={{ threshold: 1, y: 40, duration: 600 }}>
+		<BoxCards />
 	</section>
 	<section
 		id="portfolio"
