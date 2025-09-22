@@ -57,10 +57,6 @@
 		});
 	});
 
-	function spinTo(index) {
-		state.index = (index + n) % n;
-	}
-
 	function next() {
 		state.index = (state.index + 1) % n;
 		currentRotation -= step; // Subtract 90 degrees for clockwise rotation
@@ -93,9 +89,7 @@
 	}
 </script>
 
-<div
-	class="bg-gradient-to-b from-ink-500 via-blue-900 to-ink-500 text-blue-100"
->
+<div class=" text-blue-100">
 	<div class="flex flex-col items-center mb-4">
 		<h2 class="text-white text-2xl font-emphasis mb-2">The Process</h2>
 		<h3 class="text-offwhite-500 text-lg font-emphasis">
@@ -113,16 +107,16 @@
 		>
 			{#each cards.slice(0, 4) as card, i}
 				<article
-					class="absolute top-1/2 left-1/2 w-4/5 min-h-72 md:w-full h-full md:max-w-lg cursor-pointer rounded-xl overflow-hidden border border-blue-400/25 shadow-2xl"
-					style="transform-style: preserve-3d; background: linear-gradient(170deg, #0f2b55 0%, #0c2246 60%); box-shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(95,178,255,.06);"
+					class="absolute top-1/2 left-1/2 w-4/5 min-h-72 md:w-full h-full md:max-w-lg cursor-pointer rounded-xl overflow-hidden border border-blue-400/25 shadow-2xl backdrop-blur-sm"
+					style="transform-style: preserve-3d; background: linear-gradient(170deg, rgba(0, 14, 33, 0.5) 0%, rgba(0, 12, 30, 0.5) 60%); box-shadow: 0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(95,178,255,.06);"
 					bind:this={cardElements[i]}
 				>
 					<div
-						class="absolute inset-0 rounded-xl pointer-events-none"
+						class="absolute inset-0 rounded-xl pointer-events-none blur-md"
 						style="box-shadow: inset 0 0 0 2px rgba(95,178,255,.12), inset 0 -80px 120px rgba(0,0,0,.35);"
 					></div>
 					<div
-						class="absolute inset-0 rounded-xl pointer-events-none opacity-35 mix-blend-screen"
+						class="absolute inset-0 rounded-xl pointer-events-none opacity-35 mix-blend-screen blur-sm"
 						style="background: linear-gradient(115deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 40%), radial-gradient(120% 120% at -20% -20%, rgba(95,178,255,.30) 0%, rgba(95,178,255,0) 50%); transform: translateZ(1px);"
 					></div>
 					<div
@@ -150,7 +144,7 @@
 							</p>
 						</div>
 						<div
-							class="justify-self-start px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-blue-400/40 bg-blue-500/8 text-blue-200 text-xs"
+							class="justify-self-start px-2 py-1 sm:px-3 sm:py-1.5 rounded-full border border-yellow-400/40 bg-blue-500/8 text-yellow-200 text-xs"
 						>
 							{card.chip}
 						</div>
@@ -176,7 +170,7 @@
 			<div class="grid grid-flow-col gap-2 mt-1">
 				{#each Array(4) as _, i}
 					<button
-						class="w-2 h-2 sm:w-1.5 sm:h-1.5 rounded-full cursor-pointer transition-colors duration-200 {i ===
+						class="w-3 h-3 sm:w-2 sm:h-2 rounded-full cursor-pointer transition-colors duration-200 {i ===
 						state.index
 							? 'bg-white'
 							: 'bg-white/25 hover:bg-white/50'}"

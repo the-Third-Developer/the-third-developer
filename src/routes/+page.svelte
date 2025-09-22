@@ -9,6 +9,7 @@
 	import Reviews from '$lib/components/Reviews.svelte';
 	let magnetLinesContainer;
 	import BoxCards from '$lib/components/BoxCards.svelte';
+	import theCrack from '$lib/images/the_crack.webp';
 
 	onMount(async () => {
 		if (typeof window !== 'undefined') {
@@ -41,7 +42,16 @@
 	});
 </script>
 
-<div class="relative pt-16 overflow-hidden bg-ink-500">
+<div class="relative pt-16 overflow-hidden bg-ink-500/50">
+	<div
+		class="fixed inset-0 w-full h-screen after:content-[''] after:absolute after:inset-0 after:bg-black/90 -z-10"
+	>
+		<img
+			src={theCrack}
+			alt="The Third Developer hiking the Crack"
+			class="w-full h-full object-cover opacity-50 blur-md"
+		/>
+	</div>
 	<section
 		id="hero"
 		class="container mx-auto flex justify-center items-center relative z-10 pb-16 md:pb-48 px-8"
